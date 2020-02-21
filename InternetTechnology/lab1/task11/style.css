@@ -1,0 +1,31 @@
+.border_text { 
+    width: 970px; 
+    padding-right: 20px; 
+    border: solid 1px black; 
+}
+
+h1 {
+    font-weight: bold; 
+    text-align: center; 
+    padding-left: 170px; 
+    margin-top: 0px;
+}
+
+p {
+    font-size: 12px;
+    line-height: 0.3;
+}
+
+h2, h4, h5 {
+    text-align: center;
+    padding-left: 150px;
+}
+
+h5 {
+    color: red;
+}
+
+h4 {
+    color: blue;
+    font-family: "Monotype Corsiva";
+}
