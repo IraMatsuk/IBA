@@ -1,0 +1,31 @@
+.gap, .line1, .line2, .line3, .line4, .line5, .line6, .line7 {
+    height: 10px;
+}
+
+.line1 {
+    background: rgb(121, 17, 17);
+}
+
+.line2 {
+    background: red;
+}
+
+.line3 {
+    background: yellow;
+}
+
+.line4 {
+    background: green;
+}
+
+.line5 {
+    background: aqua;
+}
+
+.line6 {
+    background: blue;
+}
+
+.line7 {
+    background: purple;
+}
