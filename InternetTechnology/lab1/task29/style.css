@@ -1,0 +1,48 @@
+.border_text, .border_text3 { 
+    width: 500px;
+    background-color: #FBD4B3; 
+    border: solid 1px black; 
+}
+
+.border_text2 {
+    width: 500px;
+    height: 100px;
+}
+
+h1 {
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+    font-size: 16px;
+    font-weight: bold;
+    color: blue;
+}
+
+ol {
+    line-height: 2;
+    padding-left: 20px;
+}
+
+ol > li {
+    font-style: italic;
+    color: red;
+    font-weight: bold;
+}
+
+.animals {
+    color: green;
+    font-weight: bold;
+    list-style-type: disc;
+}
+
+.type_of_animals {
+    list-style-type: circle;
+}
+
+.border_text3 {
+    padding-left: 20px;
+}
