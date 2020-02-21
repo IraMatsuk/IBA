@@ -1,0 +1,75 @@
+/* @keyframes bobble {
+    0% {
+        transform: translate3d(50px, 40px, 0px);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: translate3d(50px, 50px, 0px);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translate3d(50px, 40px, 0px);
+    }
+} */
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.top_center {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    font-size: 30px;
+    color: blue;
+}
+
+.angel_image {
+    position: relative;
+    z-index: 2;
+    /* top: -1375px;
+    float: right; */
+}
+
+.earth_image {
+    position: relative;
+    bottom: 120px;
+    left: 20px;
+}
+
+.text {
+    position: absolute;
+    top: 200px;
+}
+
+p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.angel_image {
+    animation: angel_image 30s;
+}
+
+@keyframes angel_image {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        opacity: 1; transform: scale(1, 1) translateX(90%);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        opacity: 1; transform: scale(1, 1) translateX(0%);
+    }
+}
+
+.earth_image {
+    animation: earth_image 30s;
+}
+
+@keyframes earth_image {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        opacity: 1; transform: scale(1, 1) translateY(100%);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        opacity: 1; transform: scale(1, 1) translateY(-500%);
+    }
+}
