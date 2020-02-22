@@ -1,0 +1,35 @@
+.list {
+    background:#DAEFF4;
+    width: 580px; 
+    height: 320px;
+    border: solid 1px black;
+    background: #CDFFCC;
+}
+
+ol {
+    color: rgb(104, 9, 9);
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    line-height: 1.8;
+    padding-left: 25px;
+}
+
+li {
+    font-weight: normal;
+    color: black;
+    text-align: left;
+    font-size: 20px;
+}
+
+/* li{
+    font-size: 26px;
+    list-style: none;
+    line-height: 36px;
+}  */
+
+/* li::before {
+    content: "\2022";
+    padding-right: 2px;
+} */
