@@ -1,0 +1,19 @@
+.border_text {
+    width: 425px; 
+    height: 525px;
+    border: solid 1px black;
+}
+
+h1 {
+    color: blue; 
+    font-weight: bold; 
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+    line-height: 2;
+}
+
+
