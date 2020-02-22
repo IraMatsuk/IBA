@@ -1,0 +1,32 @@
+.list {
+    background:#DAEFF4;
+    width: 480px; 
+    height: 410px;
+    padding-right: 20px; 
+    border: solid 1px black;
+    background: #DAEFF4;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+p {
+    color: red; 
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center; 
+    margin-right: 60px;
+}
+
+li{
+    font-size: 26px;
+    list-style: none;
+    line-height: 36px;
+} 
+
+li::before {
+    content: "\2022";
+    padding-right: 2px;
+}
