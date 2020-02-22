@@ -1,0 +1,24 @@
+.list {
+    background:#DAEFF4;
+    width: 580px; 
+    height: 255px;
+    border: solid 1px black;
+    background:#E5DFEB;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(133, 94, 23);
+    font-size: 27px;
+}
+
+li {
+    color: black;
+    line-height: 1.5;
+    font-size: 23px;
+}
+
+.list2 {
+    margin-top: -15px;
+}
+
