@@ -1,0 +1,91 @@
+.wrapper {
+    width: 899px;
+    margin-left: 330px;
+}
+
+.top_left {
+    height: 200px;
+    width: 300px;
+    float: left;
+}
+
+.top_right {
+    height: 200px;
+    width: 300px;
+    float: left;
+}
+
+.bottom_left {
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin-top: 88px;
+    margin-left: 15px;
+}
+
+.bottom_right {
+    height: 200px;
+    width: 300px;
+    float: left;
+    margin-top: 54px;
+    margin-left: 10px;
+}
+
+
+.student_responsibilities {
+    font-size: 27px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: red;
+    margin-left: 10px;
+}
+
+img {
+    width: 130px;
+    height: 130px;
+    margin-left: 75px;
+}
+
+.circle_list {
+    list-style-type: circle;
+}
+
+.top_right_ol_list {
+    list-style-type: none; /* Убираем исходные маркеры */
+    counter-reset:  item; /* Обнуляем счетчик списка */
+}
+
+.top_right_ol_list li:before {
+    content: counter(item) ') '; /* Добавляем к числам скобку */
+    counter-increment: item; /* Задаём имя счетчика */
+}
+
+.top_left_p {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(122, 20, 20);
+}
+
+.top_right_p {
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(122, 20, 20);
+}
+
+.top_left_ol_list, .circle_list {
+    font-family: sans-serif;
+}
+
+.bottom_left_p {
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(18, 10, 241);
+    border-bottom: 2px solid rgb(18, 10, 241);
+}
+
+.bottom_right_p {
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(18, 10, 241);
+    border-bottom: 2px solid rgb(18, 10, 241);
+}
