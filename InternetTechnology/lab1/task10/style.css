@@ -9,6 +9,7 @@ h1 {
 
 p {
     font-size: 18px;
+    margin-left: 20px;
 }
 
 ul, ol {
@@ -30,7 +31,8 @@ b {
 
 img {
     width: 450px;
-    height: 198px;  
+    height: 198px;
+    margin-right: 125px;  
 }
 
 a {
