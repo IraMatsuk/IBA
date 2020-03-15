@@ -1,0 +1,18 @@
+.wrapper {
+    width: 800px;
+    height: 600px;
+    background-color: aquamarine;
+    margin: auto;
+}
+
+h1 {
+    font-size: 18px;
+    color: rgb(29, 29, 173);
+    text-align: center;
+    padding-top: 5px;
+}
+
+tr, td {
+    width: 127px;
+    height: 80px;
+}
