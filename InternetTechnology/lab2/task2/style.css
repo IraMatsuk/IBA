@@ -1,0 +1,44 @@
+h1 {
+    font-size: 22px;
+    color: rgb(19, 8, 105);
+    text-align: center;
+    padding-top: 15px;
+    margin-bottom: 5px;
+}
+
+.wrapper {
+    width: 470px;
+    margin: auto;
+    background-color: rgb(213, 233, 250);
+}
+
+.text_input {
+    height: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+textarea {
+    margin-left: 30px;
+    width: 80%;
+}
+
+.submit_button1 {
+    margin-bottom: 15px;
+    margin-left: 121px;
+    border-radius: 8px;
+    height: 30px;
+    width: 110px;
+}
+
+.submit_button2 {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    height: 30px;
+    width: 70px;
+
+}
+
+.select_type {
+    margin-left: 40px;
+}
