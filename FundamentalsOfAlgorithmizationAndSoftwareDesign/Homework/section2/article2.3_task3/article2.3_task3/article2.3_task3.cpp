@@ -24,6 +24,7 @@ int main()
 
   printf("The volume of the ball is %.2lf\n", ballVolume(radius));
   printf("The ball surface area is %.2lf\n", ballSurfaceArea(radius));
+  return 0;
 }
 
 
