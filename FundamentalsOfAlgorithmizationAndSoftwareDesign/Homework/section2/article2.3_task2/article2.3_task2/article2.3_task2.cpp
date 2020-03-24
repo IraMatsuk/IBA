@@ -22,5 +22,6 @@ int main()
 
   printf("The cube volume is %.3lf\n", cubeVolume(cubeEdgeLength));
   printf("The cube volume is %.3lf\n", cubeSurfaceArea(cubeEdgeLength));
+  return 0;
 }
 
