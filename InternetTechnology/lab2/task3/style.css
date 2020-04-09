@@ -1,0 +1,60 @@
+.wrapper {
+    width: 470px;
+    margin: auto;
+    background-color: rgb(172, 221, 162);
+}
+
+h1 {
+    font-size: 24px;
+    color: rgb(16, 99, 55);
+    text-align: center;
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.text_input {
+    height: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.checkbox_input1 {
+    margin-left: 110px;
+}
+
+.radio_button {
+    margin-left: 150px;
+}
+
+.submit_button1 {
+    margin-bottom: 15px;
+    margin-left: 140px;
+    border-radius: 8px;
+    height: 30px;
+    width: 110px;
+}
+
+.submit_button2 {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    height: 30px;
+    width: 70px;
+
+}
+
+img {
+    width: 60px;
+    height: 60px;
+}
+
+.planshet_img {
+    width: 100px;
+    height: 110px;
+    float: left;
+    margin-left: 35px;
+}
+
+p {
+    text-align: center;
+    color: blue;
+}
