@@ -1,0 +1,48 @@
+body {
+    background-color: rgb(253, 253, 163);
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.logo {
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 6px;
+    color: red;
+    text-align: center;
+}
+
+.text_input_customer_name {
+    width: 100px;
+}
+
+.text_input_address {
+    width: 150px;
+}
+
+.text_input_phone_number {
+    width: 50px;
+}
+
+.checkbox_input {
+    margin-left: 10px;
+}
+
+.checkbox_input1{
+    margin-left: 67px;
+}
+
+.radio_button {
+    margin-left: 10px;
+}
+
+.submit_button1 {
+    margin-left: 100px;
+}
+
+textarea {
+    margin-left: 10px;
+}

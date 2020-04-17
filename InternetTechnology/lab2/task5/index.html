@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Фотостудия "Шарм"</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Фотостудия "Шарм"</h1>
+        <div class="logo"><img src="logo.jpg" alt="logotype"></div>       
+        <form action="">                            
+            <b>Имя заказчика:</b>
+                <input class="text_input_customer_name" type="text" name = "customer_name"><br><br>
+            <b>Адрес:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="text_input_address" type="text" name = "address"><br><br>
+            <b>Телефон:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="text_input_phone_number" type="text" name = "phone_number"><br><br>  
+            <b>Фото:</b>
+                <input class="checkbox_input" type="checkbox" id="checkbox_id" name="space" value="1"><label for="checkbox_id">цветное</label><br>
+                <input class="checkbox_input1" type="checkbox" id="checkbox_id" name="space" value="2"><label for="checkbox_id">черно-белое</label><br>
+                <input class="checkbox_input1" type="checkbox" id="checkbox_id" name="space" value="3"><label for="checkbox_id">цветной слайд</label><br>
+            <p><b>Срок исполнения</b></p>
+                <input class="radio_button" type="radio" id="radio_button_id" name="period_of_execution" value="three_days"><label for="radio_button_id" >3 дня</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="radio_button" type="radio" id="radio_button_id" name="period_of_execution" value="ten_days"><label for="radio_button_id">10 дней</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="radio_button" type="radio" id="radio_button_id" name="period_of_execution" value="thirty_days"><label for="radio_button_id">30 дней</label><br><br>          
+            <legend><b>Заказ принял</b></legend>
+                <select onchange="document.location=this.options[this.selectedIndex].value" id="lastname" name="lastname">
+                    <option value="ivanov.html">Иванов</option>
+                    <option value="petrov.html">Петров</option>
+                    <option value="sidorov.html">Сидоров</option>
+                </select>
+            <br><br><br>            
+            <input class="submit_button1" type="submit" value="Отправить">
+            &nbsp;
+            <input class="submit_button2" type="submit" value="Очистить">
+        </form> 
+    </div>                  
+</body>    
+</html>
