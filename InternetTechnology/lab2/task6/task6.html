@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="style.css">   
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Калькулятор</h1>
+        <form name="calc">
+            <input type="text" id="box1">&nbsp;&nbsp;&nbsp; - Первое число<br>
+            <input type="text" id="box2">&nbsp;&nbsp;&nbsp; - Второе число<br>
+            <input type="text" id="result">&nbsp;&nbsp;&nbsp; - Результат<br>
+  
+            <input class="btn" type="button" value="+" onclick="calcSum()">
+            <input class="btn" type="button" value="-" onclick="calcMinus()">
+            <input class="btn" type="button" value="*" onclick="calcMult()">
+            <input class="btn" type="button" value="/" onclick="calcDiv()"><br>
+            <button class="clear">Очистить</button>
+        </form>  
+    </div>                  
+</body>    
+</html>
