@@ -1,0 +1,30 @@
+#container {
+    width: auto;
+    margin: 0 auto;
+}
+
+#header {
+    margin-top: 10px;  
+    background: green;
+    height: 100px;
+}
+
+#nav {
+    width: 20%;
+    height: 480px;
+    background: yellow;
+    float: left;
+}
+
+#content {
+    height: 480px;
+    width: auto;
+    background: blue;
+}
+    
+
+#footer {
+    background: red;
+    height: 40px;
+    margin-bottom: 10px;
+}
