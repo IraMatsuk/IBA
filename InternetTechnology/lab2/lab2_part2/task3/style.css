@@ -1,0 +1,57 @@
+a {
+    color: blueviolet;
+}
+
+.big_buck_p {
+    margin-top: 30px;
+}
+
+.audio_p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu {
+    width: 55px;
+    position: absolute;
+    background-color: rgb(225, 247, 248);
+}
+
+.menu ul {
+    padding-left: 11px;
+}
+
+.menu li {
+    list-style-type: none;
+}
+
+.menu a {   
+    text-decoration: none;
+    display: block;
+    padding-bottom: 20px;   
+}
+
+hr {
+    width: 20px;
+    margin-left: 6px;
+    margin-bottom: 15px;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+}
+
+h1 {  
+    margin-bottom: 0px;
+    margin-top: 15px;
+}
+
+.content {
+    float: right;
+    position: absolute;
+    padding-left: 70px;
+}
+
+
+  
