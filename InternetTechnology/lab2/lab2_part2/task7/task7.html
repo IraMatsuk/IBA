@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>task7_lab2_part2</title>
+        <link rel="stylesheet" href="style.css">
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <form id="anketa">
+                <fieldset><legend>Шановні учасники конкурсу "Вчитель-новатор»!<br>
+                    Заповніть, будь ласка, реєстраційну анкету українською мовою.<br>
+                    Прохання надати повну відповідь на всі поставлені запитання.<br>
+                    Якщо ви подаєте кілька конкурсних робіт, будь ласка,<br>
+                    заповніть дану анкету для кожної конкурсної роботи окремо.<br>
+                    Дякуємо Вам за участь в конкурсі і бажаємо успіхів!</legend>
+                    1. Прізвище <input  class="text_input" type="text" name = "last_name"><br><br>
+                    2. Ім'я та по батькові <input  class="text_input" type="text" name = "first_name"><br><br>
+                    3. Назва конкурсної роботи <input  class="text_input" type="text" name = "name_of_entry"><br><br>
+                    4. Номінація конкурсної роботи<br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="s">Навчальний проект</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Виховний проект</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Позашкільний проект</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Навчальный контент</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Он-лайновий освітній ресурс</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Навчально-методичне забезпечення</label><br><br>
+                    5. Навчальна дисципліна <input  class="text_input" type="text" name = "academic_discipline" placeholder="наприклад біологія"><br><br>
+                    6. Чи була апробована ваша работа?<br>
+                    так<label for="radioButton"><input class="radio_button" type="radio" name="m" value="yes"></label>
+                    ні<label for="radioButton"><input type="radio" name="m" value="no"></label><br><br>
+                    7. Якщо так, то на якому рівні <input  class="text_input" type="text" name = "level_of_entry"><br><br>
+                    8. Повна назва установи, де ви працюєте <input  class="text_input" type="text" name = "name_of_work"><br><br>
+                    9. Ваша посада <input  class="text_input" type="text" name = "position"><br><br>
+                    10. Місто / населений пункт <input  class="text_input" type="text" name = "city"><br><br>
+                    11. Область <select class="select_type" name="region">
+                        <option value="region1">Одеська область</option>
+                        <option value="region2">Харківська область</option>
+                        <option value="region3">Львівська область</option>
+                    </select> <br><br>
+                    12. Мобільний телефон <input  class="text_input" type="text" name = "phone_number"><br><br>
+                    13. Електронна пошта <input  class="text_input" type="text" name = "email"><br><br>
+                    14. Ви брали участь в попередніх конкурсах "Вчитель-новатор"?<br>
+                    так<label for="radioButton"><input class="radio_button" type="radio" name="m" value="yes"></label>
+                    ні<label for="radioButton"><input type="radio" name="m" value="no"></label><br><br>
+                    15. Якщо так, то вкажіть, коли саме <input  class="text_input" type="text" name = "date_of_participate"><br><br>
+                    16. Яким чином ви дізналися про конкурс "Вчитель-новатор"?<br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="s">Сайт МОН молодьспорту</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Сайт Майкрософт Україна</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Сайт Мережі "Партнерство в навчанні"</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Обласний IППО</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Обласне управління освіти</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Міське управління освіти</label><br>               
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Osvita.com</label><br>
+                    <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Gurt.org.ua</label><br>
+                    інше <input  class="text_input" type="text" name = "other"><br><br>
+                    <br>
+                    <div>
+                    <label for="checkbox">Я даю згоду на обробку моїх персональних даних і погоджуюся з Політикою<br> конфіденційності</label>
+                    <input id="checkbox" type="checkbox" name="checkbox" onchange="document.getElementById('submit').disabled = !this.checked;" /><br>
+                    <input class="submit_button" type="submit" disabled="disabled" name="submit" id="submit" value="Подати анкету">
+                    <input class="submit_button" type="submit" value="Заповнити знову">
+                </div>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>   
