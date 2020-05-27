@@ -1,0 +1,21 @@
+body {
+    width: 70%;
+    margin-left: 20%;
+} 
+
+p {
+    font-size: 14px;
+    font-family: "Monotype Corsiva";
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+img {
+    width: 400px;
+    height: 200px;
+    border: 10px solid blue;
+}
