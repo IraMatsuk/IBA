@@ -1,0 +1,149 @@
+body {
+    font-size: 12pt;
+    color: #000099;
+    text-align: justify;
+    font-family: 'Times New Roman';
+    background-color: #ffffee;
+    margin: 5px;
+}
+
+h1 {
+    font-size: 22pt;
+    color: #990099;
+    text-align: left;
+    font-family: Arial;
+}
+
+h2 {
+    font-size: 20pt;
+    color: #009900;
+    text-align: center;
+    font-family: 'Times New Roman';
+}
+
+h3 {
+    font-size: 18pt;
+    color: #ff6600;
+    text-align: right;
+    font-family: Courier;
+}
+
+h4 {
+    font-size: 16pt;
+    color: #0066ff;
+    text-align: justify;
+    font-family: Tahoma;
+}
+
+h5 {
+    font-size: 20pt;
+    color: #6600ff;
+    text-align: center;
+    font-family: 'Times New Roman';
+    background-color: #ffffaa;
+}
+
+h6 {
+    font-size: 14pt;
+    color: #6600ff;
+    text-align: center;
+    font-family: Arial;
+    text-decoration: line-through;
+}
+
+p {
+    font-size: 10pt;
+    color: #000000;
+    text-align: justify;
+    font-family: Arial;
+    background-color: #ffffee;
+    margin: 5px 80px 0px;
+}
+
+.over {
+    font-size: 10pt;
+    color: #000000;
+    text-align: justify;
+    font-family: Arial;
+    background-color: #ffffee;
+    margin: 5px 80px 0px;
+    text-decoration: overline;
+}
+
+.table1 {
+    border: 1px solid rgb(35, 99, 35);
+    width: 500px;
+    margin: auto;
+}
+
+.table1 th {
+    background-color: #ecbb33;
+    border: 1px solid rgb(35, 99, 35);
+    text-align: center;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+.table1 td {
+    border: 1px solid rgb(35, 99, 35);
+    color: blue;
+    font-family: Arial, sans-serif;
+}
+
+.table2 {
+    width: 500px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.table2 caption {
+    color: green;
+    padding: 5px;
+}
+
+.table2 th {
+    background-color: rgb(223, 158, 17);
+}
+
+.table2 tr:nth-child(odd) {
+    background-color: #f5c977;
+}
+
+.list {
+    font-size: 18px;
+    color: green;
+    text-align: center;
+}
+
+dl {
+    margin-left: 50px;
+}
+
+dt {
+    color: green;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+dd {
+    color: black;
+}
+
+ol {
+    color: blue;
+    margin-left: 50px;
+    font-family: Arial, sans-serif;
+}
+
+li {
+    color: black;
+    padding-left: 10px;
+}
+
+.link_1 {
+    text-decoration: none;
+}
+
+.link_2:hover {
+    color: red;
+}
