@@ -1,0 +1,31 @@
+div {
+    width: 470px;
+    height: 380px;
+    background-color: rgb(134, 241, 248);
+    margin-left: 33%;
+    padding: 5px;
+}
+
+h1 {
+    color: red;
+    text-align: center;
+}
+
+h2 {
+    color: blue;
+    text-align: center;
+}
+
+p {
+    margin: 5px;
+}
+
+.first_letter_decor:first-letter {
+    color: rgb(7, 78, 7);
+    margin-right: 5px;
+    float: left;
+    font-weight: bold;
+    font-family: serif;
+    font-size: 300%; 
+    line-height: 70%; 
+}
