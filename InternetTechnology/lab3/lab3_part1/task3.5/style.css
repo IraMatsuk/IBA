@@ -1,0 +1,47 @@
+.wrapper {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 30%;
+    height: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: #ccc;
+}
+
+.content { 
+    position: absolute;
+    top: -15px;
+    left: 30%;
+    width: 70%; 
+    height: 100%; 
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.photogallery {
+    width: 400px;
+    height: 400px;
+    display: block;
+    margin-left: 100px;
+}
