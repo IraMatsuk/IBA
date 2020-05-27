@@ -1,0 +1,48 @@
+body{
+    background-color: rgb(231, 121, 185);
+}
+
+h1 {
+    color: rgb(161, 16, 16);
+    text-align: center;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    color: rgb(13, 13, 109);
+}
+
+.img_aligh {
+    text-align: center;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-top: 5px dotted yellowgreen;
+    border-right: 5px dotted green;
+    border-bottom: 5px dotted red;
+    border-left: 5px dotted blue;
+
+}
+
+table {
+    margin: auto;
+    border: 5px double purple;
+    background-color: rgb(223, 171, 27);
+}
+
+th {
+    border: 2px dashed purple;
+}
+
+td {
+    border: 2px solid purple;
+    
+}
