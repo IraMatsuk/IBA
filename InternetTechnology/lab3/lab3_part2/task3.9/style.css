@@ -1,0 +1,13 @@
+#code, #winter, #sky, #frog, #forest, #cloud, #hide {
+    /*visibility: hidden;*/
+    display: none;
+}
+
+span {
+    color: green;
+    font-size: 26px;
+}
+
+p {
+    font-weight: bold;
+}
