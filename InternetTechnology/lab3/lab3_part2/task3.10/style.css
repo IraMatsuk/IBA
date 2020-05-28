@@ -1,0 +1,48 @@
+.letter {
+    font-family: Calibri;
+    font-size:  18px;
+    font-weight: bold;
+
+    color: rgb(240, 97, 145);
+    text-align: center;
+}
+
+hr {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.div1 p, li {
+    font-family: Segoe UI;
+}
+
+.div1 a {
+    color: purple;
+}
+
+h1 {
+    text-align: center;
+    font-family: Calibri;
+}
+
+.poem_p {
+    font-family: Calibri;
+    font-style: italic;
+}
+
+h3, h5 {
+    font-weight: bold;
+}
+
+.div3 {
+    font-family: Calibri;
+}
+
+.formula {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.div4 p {
+    text-align: justify;
+}
