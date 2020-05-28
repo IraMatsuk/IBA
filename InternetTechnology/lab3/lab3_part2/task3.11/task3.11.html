@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>task3.11_lab3</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <h1>CSS открыть блок при нажатии JS</h1>
+        <p class="flip" onclick="myFunction()">Нажмите, чтобы показать панель</p>
+        <div id="panel">
+            <p class="panel_p1">Эта панель содержит элемент div, который скрыт по умолчанию (display: none).</p>
+            <p class="panel_p2">Используем стиль CSS, с  JavaScript, чтобы показать div (display: block).</p>
+            <p class="panel_p3">Как это работает: обратите внимание, что элемент p с class="flip" имеет атрибут onclick, 
+            прикрепленный к нему. Когда пользователь нажимает на элемент p, выполняется функция myFunction(), 
+            которая изменяет стиль div с id="panel" с display:none (hidden) на display:block (visible).</p>
+            <p class="panel_p4">Вы узнаете больше о JavaScript, если будете работать ежедневно!</p>
+        </div>
+    </body>
+</html>

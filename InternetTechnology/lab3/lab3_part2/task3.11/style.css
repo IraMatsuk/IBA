@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+   }
+   
+.flip {
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: solid 1px #a6d8a8;
+    margin: auto;
+}
+
+#panel {
+    display: none;
+    background-color: #4CAF50;
+    text-align: center;
+    color: white;
+}
+
