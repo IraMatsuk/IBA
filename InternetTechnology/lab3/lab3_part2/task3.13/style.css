@@ -1,0 +1,43 @@
+h2 {
+    background-color: grey;
+    color: white;
+}
+
+.left {
+    float: left;
+    width: 12%;    
+}
+
+.left p {
+    text-align: justify;
+}
+
+.vertical_line1 {
+    float: left;
+    border-left: 1px solid grey;
+    height: 233px;
+    margin-top: -20px;
+    padding-left: 10px;
+
+}
+
+.vertical_line {
+    float: left;
+    border-left: 1px solid grey;
+    height: 150px;
+    margin-top: -20px;
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.content {
+    float: left;
+    width: 80%; 
+}
+
+.footer {
+    clear: both;
+    margin-bottom: 0;
+    background-color: grey;
+    color: white;
+}
