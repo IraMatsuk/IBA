@@ -27,9 +27,10 @@
                     <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Навчально-методичне забезпечення</label><br><br>
                     5. Навчальна дисципліна <input  class="text_input" type="text" name = "academic_discipline" placeholder="наприклад біологія"><br><br>
                     6. Чи була апробована ваша работа?<br>
-                    так<label for="radioButton"><input class="radio_button" type="radio" name="m" value="yes"></label>
-                    ні<label for="radioButton"><input type="radio" name="m" value="no"></label><br><br>
-                    7. Якщо так, то на якому рівні <input  class="text_input" type="text" name = "level_of_entry"><br><br>
+                    <label>так <input id="Dest" type="radio" name="2" value="Yes" aria-required="true" onChange="Selected1(this)"/></label> 
+                    <label>нет <input id="Dest" type="radio" name="2" value="No" aria-required="true" onChange="Selected1(this)"/></label>
+                    <br><br>
+                    7. Якщо так, то на якому рівні?<input id='Block1' class="text_input" type="text" name="7"/><br><br>
                     8. Повна назва установи, де ви працюєте <input  class="text_input" type="text" name = "name_of_work"><br><br>
                     9. Ваша посада <input  class="text_input" type="text" name = "position"><br><br>
                     10. Місто / населений пункт <input  class="text_input" type="text" name = "city"><br><br>
@@ -41,9 +42,9 @@
                     12. Мобільний телефон <input  class="text_input" type="text" name = "phone_number"><br><br>
                     13. Електронна пошта <input  class="text_input" type="text" name = "email"><br><br>
                     14. Ви брали участь в попередніх конкурсах "Вчитель-новатор"?<br>
-                    так<label for="radioButton"><input class="radio_button" type="radio" name="m" value="yes"></label>
-                    ні<label for="radioButton"><input type="radio" name="m" value="no"></label><br><br>
-                    15. Якщо так, то вкажіть, коли саме <input  class="text_input" type="text" name = "date_of_participate"><br><br>
+                    <label>так<input id="Dest1" type="radio" name="2" value="Yes" aria-required="true" onChange="Selected2(this)"></label>
+                    <label>ні<input id="Dest1" type="radio" name="2" value="No" aria-required="true" onChange="Selected2(this)"></label><br><br>
+                    15. Якщо так, то вкажіть, коли саме <input id="Block2" class="text_input" type="text" name = "date_of_participate"><br><br>
                     16. Яким чином ви дізналися про конкурс "Вчитель-новатор"?<br>
                     <label for="radioButton"><input class="radio1" type="radio" name="m" value="s">Сайт МОН молодьспорту</label><br>
                     <label for="radioButton"><input class="radio1" type="radio" name="m" value="w">Сайт Майкрософт Україна</label><br>

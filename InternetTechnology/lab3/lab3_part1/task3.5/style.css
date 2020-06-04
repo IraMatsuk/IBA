@@ -25,6 +25,8 @@ a {
 
 .menu a:hover {
     background-color: #ccc;
+    text-decoration: underline;
+    color: red;
 }
 
 .content { 
