@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            'use strict';
+            var elems = document.documentElement.childNodes;
+            elems = Array.prototype.slice.call(elems); // теперь elems - массив
+            elems.forEach(function(elem) {
+                alert( elem.tagName ); // HEAD, текст, BODY
+            });
+        </script>
+    </body>
+ </html>   

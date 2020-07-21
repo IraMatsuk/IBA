@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            'use strict';
+            var elems = document.documentElement.childNodes;
+
+            [].forEach.call(elems, function(elem) {
+                alert( elem ); // HEAD, текст, BODY
+            });   
+        </script>
+    </body>
+</html>

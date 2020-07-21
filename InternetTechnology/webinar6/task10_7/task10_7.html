@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <table>
+            <tbody>
+                <tr>
+                    <td>один</td>
+                    <td>два</td>
+                </tr>
+                <tr>
+                    <td>три</td>
+                    <td>четыре</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            var table = document.body.children[0];
+            alert(table.rows[0].cells[0].innerHTML); //один
+        </script>
+    </body>
+</html>
