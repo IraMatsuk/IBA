@@ -1,7 +1,7 @@
 'use strict';
 var age = prompt("Ваш возраст", "18");
 switch(age) {
-    case 18:
+    case "1":
         alert("Никогда не срабатывает");
     case "18":
         alert("Вам 18 лет");

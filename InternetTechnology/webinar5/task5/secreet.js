@@ -1,7 +1,7 @@
 const var1 = 7;
 const var2 = 10;
 const var3 = 8;
-const var4 = 21;
+const var4 = 25;
 const var5 = 30;
 
 const wrapper = document.querySelector(".secret_word");
@@ -43,7 +43,7 @@ if (var3 - var2 == var1 + var2) {
     word += 'Н';
 }
 
-if (var4 == var1 + var2 + var3) {
+if (var4 == (var1 + var2 + var3)) {
     word += 'А';
 }
 

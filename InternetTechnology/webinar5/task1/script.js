@@ -1,5 +1,5 @@
 function callNotificationWindow() {
-    if (confirm("Вызвать окно оповещения?")) {
+    if (alert("Вызвать окно оповещения?")) {
         return true;
     } else {
         return false;
