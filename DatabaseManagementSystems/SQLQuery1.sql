@@ -1,5 +1,5 @@
 create table user13_table(x1 int);
-/* Таблица подразделений */
+/* Г’Г ГЎГ«ГЁГ¶Г  ГЇГ®Г¤Г°Г Г§Г¤ГҐГ«ГҐГ­ГЁГ© */
 CREATE TABLE user13_DEPT
 (
   DEPTNO INT NOT NULL,
@@ -9,12 +9,12 @@ CREATE TABLE user13_DEPT
 
 
 ALTER TABLE user13_DEPT
-  ADD CONSTRAINT user13_DEPT_PK PRIMARY KEY (DEPTNO); /* будут обязательные уникальные значения, это uniqe + not null */
+  ADD CONSTRAINT user13_DEPT_PK PRIMARY KEY (DEPTNO); /* ГЎГіГ¤ГіГІ Г®ГЎГїГ§Г ГІГҐГ«ГјГ­Г»ГҐ ГіГ­ГЁГЄГ Г«ГјГ­Г»ГҐ Г§Г­Г Г·ГҐГ­ГЁГї, ГЅГІГ® uniqe + not null */
 ALTER TABLE user13_DEPT
-  ADD CONSTRAINT user13_DEPT_UK UNIQUE (DNAME); /*уникальное поле может быть пустым */
+  ADD CONSTRAINT user13_DEPT_UK UNIQUE (DNAME); /*ГіГ­ГЁГЄГ Г«ГјГ­Г®ГҐ ГЇГ®Г«ГҐ Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј ГЇГіГ±ГІГ»Г¬ */
 
    select * from user13_DEPT;
-/* Таблица сотрудников */
+/* Г’Г ГЎГ«ГЁГ¶Г  Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў */
 CREATE TABLE user13_EMP
 (
   EMPNO    INT NOT NULL,
@@ -40,7 +40,7 @@ ALTER TABLE user13_EMP
   REFERENCES user13_EMP (EMPNO);
 
   
-/* Таблица вилок зарплат */
+/* Г’Г ГЎГ«ГЁГ¶Г  ГўГЁГ«Г®ГЄ Г§Г Г°ГЇГ«Г ГІ */
 CREATE TABLE user13_SALGRADE (
  GRADE               INT NOT NULL,
  LOSAL               INT,
@@ -51,13 +51,13 @@ select * from user13_SALGRADE;
 ALTER TABLE user13_SALGRADE
   ADD CONSTRAINT user13_SALGRADE_PK PRIMARY KEY (GRADE);
 
-/* Данные по подразделениям */
+/* Г„Г Г­Г­Г»ГҐ ГЇГ® ГЇГ®Г¤Г°Г Г§Г¤ГҐГ«ГҐГ­ГЁГїГ¬ */
 INSERT INTO user13_DEPT VALUES (10,'ACCOUNTING','NEW YORK');
 INSERT INTO user13_DEPT VALUES (20,'RESEARCH','DALLAS');
 INSERT INTO user13_DEPT VALUES (30,'SALES','CHICAGO');
 INSERT INTO user13_DEPT VALUES (40,'OPERATIONS','BOSTON');
 
-/* Данные по сотрудникам */
+/* Г„Г Г­Г­Г»ГҐ ГЇГ® Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ Г¬ */
 INSERT INTO user13_EMP VALUES (7839,'KING','PRESIDENT',NULL,'2011-09-11',5000,NULL,10);
 INSERT INTO user13_EMP VALUES (7698,'BLAKE','MANAGER',7839,'2014-01-31',2850,NULL,30);
 INSERT INTO user13_EMP VALUES (7782,'CLARK','MANAGER',7839,'2013-02-21',2450,NULL,10);
@@ -73,34 +73,34 @@ INSERT INTO user13_EMP VALUES (7788,'SCOTT','ANALYST',7566,'2017-01-11',3000,NUL
 INSERT INTO user13_EMP VALUES (7876,'ADAMS','CLERK',7788,'2018-07-13',1100,NULL,20);
 INSERT INTO user13_EMP VALUES (7934,'MILLER','CLERK',7782,'2018-03-12',1300,NULL,10);
 
-/* Данные по уровням зарплат */
+/* Г„Г Г­Г­Г»ГҐ ГЇГ® ГіГ°Г®ГўГ­ГїГ¬ Г§Г Г°ГЇГ«Г ГІ */
 INSERT INTO user13_SALGRADE VALUES (1,700,1200);
 INSERT INTO user13_SALGRADE VALUES (2,1201,1400);
 INSERT INTO user13_SALGRADE VALUES (3,1401,2000);
 INSERT INTO user13_SALGRADE VALUES (4,2001,3000);
 INSERT INTO user13_SALGRADE VALUES (5,3001,9999);
 
---определить фамилии сотрудников, зарплаты которых выше 2000;
+--Г®ГЇГ°ГҐГ¤ГҐГ«ГЁГІГј ГґГ Г¬ГЁГ«ГЁГЁ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў, Г§Г Г°ГЇГ«Г ГІГ» ГЄГ®ГІГ®Г°Г»Гµ ГўГ»ГёГҐ 2000;
 select ENAME
 from dbo.user13_EMP
 where SAL > 2000;
 
---найти отделы, которые находятся в Далласе;
+--Г­Г Г©ГІГЁ Г®ГІГ¤ГҐГ«Г», ГЄГ®ГІГ®Г°Г»ГҐ Г­Г ГµГ®Г¤ГїГІГ±Гї Гў Г„Г Г«Г«Г Г±ГҐ;
 select DNAME
 from dbo.user13_DEPT
 where LOC = 'DALLAS';
 
---определить фамилии сотрудников из отдела 20;
+--Г®ГЇГ°ГҐГ¤ГҐГ«ГЁГІГј ГґГ Г¬ГЁГ«ГЁГЁ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў ГЁГ§ Г®ГІГ¤ГҐГ«Г  20;
 select DNAME
 from dbo.user13_DEPT
 where DEPTNO = 20;
 
---найти сотрудников, чьим начальником является сотрудник 7839;
+--Г­Г Г©ГІГЁ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў, Г·ГјГЁГ¬ Г­Г Г·Г Г«ГјГ­ГЁГЄГ®Г¬ ГїГўГ«ГїГҐГІГ±Гї Г±Г®ГІГ°ГіГ¤Г­ГЁГЄ 7839;
 select EMPNO, ENAME 
 from dbo.user13_EMP
 where MGR = 7839;
 
---отсортировать сотрудников их дате найма.
+--Г®ГІГ±Г®Г°ГІГЁГ°Г®ГўГ ГІГј Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў ГЁГµ Г¤Г ГІГҐ Г­Г Г©Г¬Г .
 select *
 from dbo.user13_EMP
 order by HIREDATE DESC;

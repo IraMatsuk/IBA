@@ -1,0 +1,23 @@
+table {
+    margin-left: 40%;
+}
+
+.div1 {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.div2 {
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.div3 {
+    background-color: green;
+    width: 100px;
+    height: 100px;
+}
