@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>task4_lab1_part2</title>
+        <link rel="stylesheet" href="style.css"> 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    </head>
+    <body>
+        <p>Я первый элемент (без id)</p>
+        <p id="el2">Я второй элемент (id el2)</p>
+        <p id="el3">Я третий элемент (class el3)</p>
+        <input type="button" value="Я кнопка">
+        <p><a href="www.google.by">Google</a></p>
+        <p><a href="#">HTML учебник</a></p>
+        <script type='text/javascript'>
+        $("#el2").css("color", "green");
+        $("#el3").css("color", "red");
+        $(":input").css("color", "blue");
+        $("[href]").css("font-size","20px");
+        $("[href='www.google.by']").css("color", "green");
+        </script>
+    </body>
+</html>
