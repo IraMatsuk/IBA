@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>                                                                  
+<head> 
+    <meta charset="utf-8">
+    <title>task6_lab3_part2</title> 
+    <script type="text/javascript">                                                           
+        function openFile(file_name){
+            xhttp=new XMLHttpRequest();
+            xhttp.onreadystatechange=function(){
+                if (xhttp.readyState==4 && xhttp.status==200)
+                    document.getElementById('par1').innerHTML=xhttp.responseText;
+                }
+            xhttp.open('GET', file_name, true);
+            xhttp.send();
+        }       
+</script>                                                      
+</head>
+<body> 
+    <p><b>Создайте четыре кнопки и напишите для них код, запрашивающий с помощью AJAX файлы winter.txt, summer.txt, autumn.txt, spring.txt с сервера и отображающий результат на странице.</b></p>
+    <div id="code">
+        <p id="par1">В данном абзаце будут отображены результаты запросов.</p>
+        <input id="but1" type="button" value="Обратится к файлу autumn.txt" onclick='openFile("autumn.txt")'/>
+        <input id="but2" type="button" value="Обратится к файлу winter.txt" onclick='openFile("winter.txt")'/>
+        <br /><br />
+        <input id="but3" type="button" value="Обратится к файлу summer.txt" onclick='openFile("summer.txt")'/>
+        <input id="but4" type="button" value="Обратится к файлу spring.txt" onclick='openFile("spring.txt")'/>
+    </div>
+</body>
+</html>

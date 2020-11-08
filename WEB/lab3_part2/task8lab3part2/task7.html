@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type='text/javascript'>
+            function start(){  
+                xhttp=new XMLHttpRequest();
+                xhttp.open('GET','bookshop.json',true);
+                xhttp.send();
+                xhttp.onreadystatechange=function(){
+                    if (xhttp.readyState==4){
+                        var json=eval( '('+xhttp.responseText+')' );
+                        
+                            document.getElementById('wrap').style.display='block';
+                            document.getElementById('res1').innerHTML=json.bookbase[5].title +", " + json.bookbase[6].title +", " + json.bookbase[7].title;
+                            document.getElementById('res2').innerHTML=json.bookbase[3].author;
+                            document.getElementById('res3').innerHTML=json.bookbase[3].quantity + json.bookbase[6].quantity + json.bookbase[9].quantity + json.bookbase[12].quantity;
+                            
+                    }
+                }
+            }
+
+    </script>
+    </head>
+    <body>
+        <input type='button' value='Запросить содержимое' onclick='start()'/>
+        <br /><br />
+        <div id='wrap' style='display:none;'>
+            <hr />
+            <p>Автор: <b><span id='res2'></span></b></p>
+            <p>Название книги: <b><span id='res1'></span></b></p>
+            <p>Количество на складе: <b><span id='res3'></span> шт.</b></p>
+            <hr />
+        </div>
+    </body>
+</html>

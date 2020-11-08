@@ -1,0 +1,27 @@
+﻿<html>
+    <head>
+        <script type='text/javascript'>
+        function calculate(){
+        var x=document.getElementById('number1').value;
+        var y=document.getElementById('number2').value;
+        var z=document.getElementById('number3').value;
+
+        xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange=function(){
+            if (xhttp.readyState==4 && xhttp.status==200)
+                document.getElementById('ajax').innerHTML=xhttp.responseText;
+            }
+        xhttp.open('POST',"testfile.php?var1=" + x + "&var2=" + y + "&var3=" + z,true);
+        xhttp.send();
+        }
+        </script>
+    </head>
+    <body>
+        <b><p id='ajax'>Создайте AJAX запрос для обращения к этому скрипту и подберите такие значения аргументов var1, var2 и var3, чтобы результат выполнения скрипта был равен 8.</p></b>
+        <input type='text' id='number1' />
+        <input type='text' id='number2' />
+        <input type='text' id='number3' />
+        <br /><br />
+        <input type='button' value='Посчитать' onclick='calculate()'/>
+    </body>
+</html>
