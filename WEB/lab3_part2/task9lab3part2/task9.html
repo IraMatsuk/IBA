@@ -8,14 +8,14 @@
     <ul id="list"></ul>
     <script>
         function loadPhones() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'phonebase.json', true);
-            xhr.onreadystatechange = function() {
+            var xhr = new XMLHttpRequest();  //создаем новый request
+            xhr.open('GET', 'phonebase.json', true); //
+            xhr.onreadystatechange = function() { //callback на изменение state
                 if (xhr.readyState != 4) return;
                 button.innerHTML = 'Готово!';
                 if (xhr.status != 200) {
-                // обработать ошибку
-                alert(xhr.status + ': ' + xhr.statusText);
+                    // обработать ошибку
+                    alert(xhr.status + ': ' + xhr.statusText);
                 } else {
                     var phones = JSON.parse(xhr.responseText);
                     showPhones(phones);

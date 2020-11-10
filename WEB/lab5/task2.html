@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <title>Пример адаптивного макета, построенного с использованием Bootstrap 4</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    .container {
+      text-align: center;
+      font-size: 50px;
+      font-weight: 100;
+    }
+
+    .a .container {
+      background-color: #00b0f0;
+    }
+
+    .b .container {
+      background-color: #00b050;
+    }
+
+    .c .container {
+      background-color: #c00000;
+    }
+
+    .d .container {
+      background-color: #7030a0;
+    }
+
+    .a1 {
+      background-color: rgba(255, 255, 255, .5);
+    }
+
+    .c1 {
+      background-color: rgba(255, 255, 255, .66);
+    }
+
+    .c2 {
+      background-color: rgba(255, 255, 255, .33);
+    }
+
+    .d1 {
+      background-color: rgba(255, 255, 255, .75);
+    }
+
+    .d2 {
+      background-color: rgba(255, 255, 255, .5);
+    }
+
+    .d3 {
+      background-color: rgba(255, 255, 255, .25);
+    }
+
+    .a2,
+    .b,
+    .c2,
+    .c3,
+    .d3,
+    .d4 {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="h4 text-center my-4">Пример адаптивного макета, построенного с использованием Bootstrap 4</h1>
+      <div class="lead mb-2">
+        Текущая контрольная точка:
+        <span class="d-inline d-sm-none">XS</span>
+        <span class="d-none d-sm-inline d-md-none">SM</span>
+        <span class="d-none d-md-inline d-lg-none">MD</span>
+        <span class="d-none d-lg-inline d-xl-none">LG</span>
+        <span class="d-none d-xl-inline">XL</span>
+      </div>
+    </div>
+    <section class="a">
+      <div class="container">
+        <div class="row">
+          <div class="a1 col-lg-6">A1</div>
+          <div class="a2 col-lg-6">A2</div>
+        </div>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="b">
+      <div class="container">
+        <div class="row">
+          <div class="b col-lg-12">B</div>
+        </div>
+      </div>
+    </section> 
+    <section class="c">
+      <div class="container">
+        <div class="row">
+          <div class="c1 col-lg-4 col-sm-6 col-md-6">C1</div>
+          <div class="c2 col-lg-4 col-sm-6 col-md-6">C2</div>
+          <div class="c3 col-lg-4 col-sm-12 col-md-12">C3</div>
+        </div>
+      </div>
+    </section> 
+  </main>
+  <footer>
+    <section class="d">
+      <div class="container">
+        <div class="row">
+          <div class="d1 col-lg-3 col-sm-6 col-md-6">D1</div>
+          <div class="d2 col-lg-3 col-sm-6 col-md-6">D2</div>
+          <div class="d3 col-lg-3 col-sm-6 col-md-6">D3</div>
+          <div class="d4 col-lg-3 col-sm-6 col-md-6">D4</div>
+        </div>
+      </div>
+    </section> 
+  </footer>
+  <!-- jQuery -->
+  <!-- Popper -->
+  <!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>							
+
+							

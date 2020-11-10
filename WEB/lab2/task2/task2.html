@@ -15,7 +15,10 @@
                 $("#href1").mouseout(function(){$("#href1").css("color", "black")});
                 
                 $('#text1').select(function(){$(this).css('color','red').css('fontSize','20px')});
-                $("#but2").toggle(function(){$("#par2").css('fontFamily','Times New Roman').css('color','red').css('border','none');},function(){$('#par2').css('fontFamily','Arial').css('color','blue');},function(){$('#par2').css('fontWeight','bold').css('fontFamily','Verdana').css('border','1px solid');});
+                $("#but2").toggle(function(){$("#par2").css('fontFamily','Times New Roman').css('color','red').css('border','none');},
+                function(){$('#par2').css('fontFamily','Arial').css('color','blue');},
+                function(){$('#par2').css('fontWeight','bold').css('fontFamily','Verdana').css('border','1px solid');},
+                function(){$("#par2").css('fontFamily','').css('fontWeight','').css('color','').css('border','');});
             });
         </script>
     </head>

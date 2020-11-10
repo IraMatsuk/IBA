@@ -6,16 +6,16 @@
         <script>
             let x, y;
             // метод parseInt() переводит строку в целое число
-            x = parseInt(prompt("Введите значение х",''));
-            y = parseInt(prompt("Введите значение у",''));
+            x = parseFloat(prompt("Введите значение х",''));
+            y = parseFloat(prompt("Введите значение у",''));
             if(x < y){
-                alert("Максимальное число - y")
+                alert("Максимальное число - y", y)
             }
             else if(x == y) {
                 alert("Введенные числа равны!");
             }
             else {
-                alert("Максимальное число - x")
+                alert("Максимальное число - x", x)
             } 
         </script>
     </body>
