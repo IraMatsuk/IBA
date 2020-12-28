@@ -1,0 +1,807 @@
+﻿---
+--CREATE TABLE statements
+---
+--DROP TABLE ORDERS;
+--DROP TABLE CUSTOMERS;
+--DROP TABLE SALESREPS;
+--DROP TABLE OFFICES;
+--DROP TABLE PRODUCTS;
+
+CREATE TABLE PRODUCTS
+     (MFR_ID CHAR(3) NOT NULL,
+  PRODUCT_ID CHAR(5) NOT NULL,
+ DESCRIPTION VARCHAR(20) NOT NULL,
+       PRICE MONEY NOT NULL,
+ QTY_ON_HAND INTEGER NOT NULL,
+ PRIMARY KEY (MFR_ID, PRODUCT_ID));
+
+ CREATE TABLE OFFICES
+     (OFFICE INT NOT NULL,
+        CITY VARCHAR(15) NOT NULL,
+      REGION VARCHAR(10) NOT NULL,
+         MGR INT,
+      TARGET DECIMAL(9,2),
+       SALES DECIMAL(9,2) NOT NULL,
+ PRIMARY KEY (OFFICE));
+
+ CREATE TABLE SALESREPS
+   (EMPL_NUM INT NOT NULL,
+             CHECK (EMPL_NUM BETWEEN 101 AND 199),
+        NAME VARCHAR(15) NOT NULL,
+        AGE INTEGER,
+  REP_OFFICE INTEGER,
+       TITLE VARCHAR(10),
+   HIRE_DATE DATE NOT NULL,
+     MANAGER INT,
+       QUOTA DECIMAL(9,2),
+       SALES DECIMAL(9,2) NOT NULL,
+ PRIMARY KEY (EMPL_NUM),
+ FOREIGN KEY (MANAGER) REFERENCES SALESREPS(EMPL_NUM),
+ CONSTRAINT WORKSIN FOREIGN KEY (REP_OFFICE)  
+  REFERENCES OFFICES(OFFICE));
+
+CREATE TABLE CUSTOMERS
+   (CUST_NUM INTEGER    NOT NULL,
+    COMPANY VARCHAR(20) NOT NULL,
+    CUST_REP INTEGER,
+    CREDIT_LIMIT DECIMAL(9,2),
+PRIMARY KEY (CUST_NUM),
+CONSTRAINT HASREP FOREIGN KEY (CUST_REP)
+REFERENCES SALESREPS(EMPL_NUM));
+
+CREATE TABLE ORDERS
+  (ORDER_NUM INTEGER NOT NULL,
+             CHECK (ORDER_NUM > 100000),
+  ORDER_DATE DATE NOT NULL,
+        CUST INTEGER NOT NULL,
+         REP INTEGER,
+         MFR CHAR(3) NOT NULL,
+     PRODUCT CHAR(5) NOT NULL,
+         QTY INTEGER NOT NULL,
+      AMOUNT DECIMAL(9,2) NOT NULL,
+PRIMARY KEY (ORDER_NUM),
+CONSTRAINT PLACEDBY FOREIGN KEY (CUST)
+REFERENCES CUSTOMERS(CUST_NUM)
+ON DELETE CASCADE,
+CONSTRAINT TAKENBY FOREIGN KEY (REP)
+REFERENCES SALESREPS(EMPL_NUM),
+CONSTRAINT ISFOR FOREIGN KEY (MFR, PRODUCT)
+REFERENCES PRODUCTS(MFR_ID, PRODUCT_ID));
+
+ALTER TABLE OFFICES
+  ADD CONSTRAINT HASMGR
+  FOREIGN KEY (MGR) REFERENCES SALESREPS(EMPL_NUM);
+
+---
+---  Inserts for sample schema
+---
+
+---
+---  PRODUCTS
+---
+INSERT INTO PRODUCTS VALUES('REI','2A45C','Ratchet Link',79.00,210);
+INSERT INTO PRODUCTS VALUES('ACI','4100Y','Widget Remover',2750.00,25);
+INSERT INTO PRODUCTS VALUES('QSA','XK47 ','Reducer',355.00,38);
+INSERT INTO PRODUCTS VALUES('BIC','41627','Plate',180.00,0);
+INSERT INTO PRODUCTS VALUES('IMM','779C ','900-LB Brace',1875.00,9);
+INSERT INTO PRODUCTS VALUES('ACI','41003','Size 3 Widget',107.00,207);
+INSERT INTO PRODUCTS VALUES('ACI','41004','Size 4 Widget',117.00,139);
+INSERT INTO PRODUCTS VALUES('BIC','41003','Handle',652.00,3);
+INSERT INTO PRODUCTS VALUES('IMM','887P ','Brace Pin',250.00,24);
+INSERT INTO PRODUCTS VALUES('QSA','XK48 ','Reducer',134.00,203);
+INSERT INTO PRODUCTS VALUES('REI','2A44L','Left Hinge',4500.00,12);
+INSERT INTO PRODUCTS VALUES('FEA','112  ','Housing',148.00,115);
+INSERT INTO PRODUCTS VALUES('IMM','887H ','Brace Holder',54.00,223);
+INSERT INTO PRODUCTS VALUES('BIC','41089','Retainer',225.00,78);
+INSERT INTO PRODUCTS VALUES('ACI','41001','Size 1 Wiget',55.00,277);
+INSERT INTO PRODUCTS VALUES('IMM','775C ','500-lb Brace',1425.00,5);
+INSERT INTO PRODUCTS VALUES('ACI','4100Z','Widget Installer',2500.00,28);
+INSERT INTO PRODUCTS VALUES('QSA','XK48A','Reducer',177.00,37);
+INSERT INTO PRODUCTS VALUES('ACI','41002','Size 2 Widget',76.00,167);
+INSERT INTO PRODUCTS VALUES('REI','2A44R','Right Hinge',4500.00,12);
+INSERT INTO PRODUCTS VALUES('IMM','773C ','300-lb Brace',975.00,28);
+INSERT INTO PRODUCTS VALUES('ACI','4100X','Widget Adjuster',25.00,37);
+INSERT INTO PRODUCTS VALUES('FEA','114  ','Motor Mount',243.00,15);
+INSERT INTO PRODUCTS VALUES('IMM','887X ','Brace Retainer',475.00,32);
+INSERT INTO PRODUCTS VALUES('REI','2A44G','Hinge Pin',350.00,14);
+
+
+---
+---  OFFICES
+---
+INSERT INTO OFFICES VALUES(22,'Denver','Western',null,300000.00,186042.00);
+INSERT INTO OFFICES VALUES(11,'New York','Eastern',null,575000.00,692637.00);
+INSERT INTO OFFICES VALUES(12,'Chicago','Eastern',null,800000.00,735042.00);
+INSERT INTO OFFICES VALUES(13,'Atlanta','Eastern',null,350000.00,367911.00);
+INSERT INTO OFFICES VALUES(21,'Los Angeles','Western',null,725000.00,835915.00);
+
+
+---
+---  SALESREPS
+---
+INSERT INTO SALESREPS VALUES (106,'Sam Clark',52,11,'VP Sales','2006-06-14',null,275000.00,299912.00);
+INSERT INTO SALESREPS VALUES (109,'Mary Jones',31,11,'Sales Rep','2007-10-12',106,300000.00,392725.00);
+INSERT INTO SALESREPS VALUES (104,'Bob Smith',33,12,'Sales Mgr','2005-05-19',106,200000.00,142594.00);
+INSERT INTO SALESREPS VALUES (108,'Larry Fitch',62,21,'Sales Mgr','2007-10-12',106,350000.00,361865.00);
+INSERT INTO SALESREPS VALUES (105,'Bill Adams',37,13,'Sales Rep','2006-02-12',104,350000.00,367911.00);
+INSERT INTO SALESREPS VALUES (102,'Sue Smith',48,21,'Sales Rep','2004-12-10',108,350000.00,474050.00);
+INSERT INTO SALESREPS VALUES (101,'Dan Roberts',45,12,'Sales Rep','2004-10-20',104,300000.00,305673.00);
+INSERT INTO SALESREPS VALUES (110,'Tom Snyder',41,null,'Sales Rep','2008-01-13',101,null,75985.00);
+INSERT INTO SALESREPS VALUES (103,'Paul Cruz',29,12,'Sales Rep','2005-03-01',104,275000.00,286775.00);
+INSERT INTO SALESREPS VALUES (107,'Nancy Angelli',49,22,'Sales Rep','2006-11-14',108,300000.00,186042.00);
+
+
+---
+---   OFFICE MANAGERS
+---
+UPDATE OFFICES SET MGR=108 WHERE OFFICE=22;
+UPDATE OFFICES SET MGR=106 WHERE OFFICE=11;
+UPDATE OFFICES SET MGR=104 WHERE OFFICE=12;
+UPDATE OFFICES SET MGR=105 WHERE OFFICE=13;
+UPDATE OFFICES SET MGR=108 WHERE OFFICE=21;
+
+---
+---   CUSTOMERS
+---
+INSERT INTO CUSTOMERS VALUES(2111,'JCP Inc.',103,50000.00);
+INSERT INTO CUSTOMERS VALUES(2102,'First Corp.',101,65000.00);
+INSERT INTO CUSTOMERS VALUES(2103,'Acme Mfg.',105,50000.00);
+INSERT INTO CUSTOMERS VALUES(2123,'Carter \& Sons',102,40000.00);
+INSERT INTO CUSTOMERS VALUES(2107,'Ace International',110,35000.00);
+INSERT INTO CUSTOMERS VALUES(2115,'Smithson Corp.',101,20000.00);
+INSERT INTO CUSTOMERS VALUES(2101,'Jones Mfg.',106,65000.00);
+INSERT INTO CUSTOMERS VALUES(2112,'Zetacorp',108,50000.00);
+INSERT INTO CUSTOMERS VALUES(2121,'QMA Assoc.',103,45000.00);
+INSERT INTO CUSTOMERS VALUES(2114,'Orion Corp.',102,20000.00);
+INSERT INTO CUSTOMERS VALUES(2124,'Peter Brothers',107,40000.00);
+INSERT INTO CUSTOMERS VALUES(2108,'Holm \& Landis',109,55000.00);
+INSERT INTO CUSTOMERS VALUES(2117,'J.P. Sinclair',106,35000.00);
+INSERT INTO CUSTOMERS VALUES(2122,'Three Way Lines',105,30000.00);
+INSERT INTO CUSTOMERS VALUES(2120,'Rico Enterprises',102,50000.00);
+INSERT INTO CUSTOMERS VALUES(2106,'Fred Lewis Corp.',102,65000.00);
+INSERT INTO CUSTOMERS VALUES(2119,'Solomon Inc.',109,25000.00);
+INSERT INTO CUSTOMERS VALUES(2118,'Midwest Systems',108,60000.00);
+INSERT INTO CUSTOMERS VALUES(2113,'Ian \& Schmidt',104,20000.00);
+INSERT INTO CUSTOMERS VALUES(2109,'Chen Associates',103,25000.00);
+INSERT INTO CUSTOMERS VALUES(2105,'AAA Investments',101,45000.00);
+
+---
+---  ORDERS
+---
+INSERT INTO ORDERS VALUES (112961,'2007-12-17',2117,106,'REI','2A44L',7,31500.00);
+INSERT INTO ORDERS VALUES (113012,'2008-01-11',2111,105,'ACI','41003',35,3745.00);
+INSERT INTO ORDERS VALUES (112989,'2008-01-03',2101,106,'FEA','114',6,1458.00);
+INSERT INTO ORDERS VALUES (113051,'2008-02-10',2118,108,'QSA','XK47',4,1420.00);
+INSERT INTO ORDERS VALUES (112968,'2007-10-12',2102,101,'ACI','41004',34,3978.00);
+INSERT INTO ORDERS VALUES (113036,'2008-01-30',2107,110,'ACI','4100Z',9,22500.00);
+INSERT INTO ORDERS VALUES (113045,'2008-02-02',2112,108,'REI','2A44R',10,45000.00);
+INSERT INTO ORDERS VALUES (112963,'2007-12-17',2103,105,'ACI','41004',28,3276.00);
+INSERT INTO ORDERS VALUES (113013,'2008-01-14',2118,108,'BIC','41003',1,652.00);
+INSERT INTO ORDERS VALUES (113058,'2008-02-23',2108,109,'FEA','112',10,1480.00);
+INSERT INTO ORDERS VALUES (112997,'2008-01-08',2124,107,'BIC','41003',1,652.00);
+INSERT INTO ORDERS VALUES (112983,'2007-12-27',2103,105,'ACI','41004',6,702.00);
+INSERT INTO ORDERS VALUES (113024,'2008-01-20',2114,108,'QSA','XK47',20,7100.00);
+INSERT INTO ORDERS VALUES (113062,'2008-02-24',2124,107,'FEA','114',10,2430.00);
+INSERT INTO ORDERS VALUES (112979,'2007-10-12',2114,102,'ACI','4100Z',6,15000.00);
+INSERT INTO ORDERS VALUES (113027,'2008-01-22',2103,105,'ACI','41002',54,4104.00);
+INSERT INTO ORDERS VALUES (113007,'2008-01-08',2112,108,'IMM','773C',3,2925.00);
+INSERT INTO ORDERS VALUES (113069,'2008-03-02',2109,107,'IMM','775C',22,31350.00);
+INSERT INTO ORDERS VALUES (113034,'2008-01-29',2107,110,'REI','2A45C',8,632.00);
+INSERT INTO ORDERS VALUES (112992,'2007-11-04',2118,108,'ACI','41002',10,760.00);
+INSERT INTO ORDERS VALUES (112975,'2007-10-12',2111,103,'REI','2A44G',6,2100.00);
+INSERT INTO ORDERS VALUES (113055,'2008-02-15',2108,101,'ACI','4100X',6,150.00);
+INSERT INTO ORDERS VALUES (113048,'2008-02-10',2120,102,'IMM','779C',2,3750.00);
+INSERT INTO ORDERS VALUES (112993,'2007-01-04',2106,102,'REI','2A45C',24,1896.00);
+INSERT INTO ORDERS VALUES (113065,'2008-02-27',2106,102,'QSA','XK47',6,2130.00);
+INSERT INTO ORDERS VALUES (113003,'2008-01-25',2108,109,'IMM','779C',3,5625.00);
+INSERT INTO ORDERS VALUES (113049,'2008-02-10',2118,108,'QSA','XK47',2,776.00);
+INSERT INTO ORDERS VALUES (112987,'2007-12-31',2103,105,'ACI','4100Y',11,27500.00);
+INSERT INTO ORDERS VALUES (113057,'2008-02-18',2111,103,'ACI','4100X',24,600.00);
+INSERT INTO ORDERS VALUES (113042,'2008-02-20',2113,101,'REI','2A44R',5,22500.00);
+
+--1.1.Выбрать все заказы, выполненные определенным покупателем.
+SELECT * FROM ORDERS
+WHERE CUST = (
+	SELECT CUST_NUM FROM CUSTOMERS WHERE COMPANY = 'Jones Mfg.');
+
+SELECT * FROM ORDERS
+WHERE CUST = (
+	SELECT CUST_NUM FROM CUSTOMERS WHERE COMPANY = 'Zetacorp');
+
+--1.2.Выбрать всех покупателей в порядке уменьшения обшей стоимости заказов.
+SELECT COMPANY, sum(AMOUNT) as company_amount
+FROM CUSTOMERS c JOIN ORDERS o
+ON c.CUST_NUM = o.CUST
+group by COMPANY
+ORDER BY sum(AMOUNT) DESC;
+
+--1.3.Выбрать все заказы, которые оформлялись менеджерами из восточного региона.
+SELECT S.NAME, S.SALES
+FROM SALESREPS S
+WHERE REP_OFFICE IN(
+	SELECT OFFICE FROM OFFICES WHERE REGION LIKE 'East%');
+
+--1.4.Найти описания товаров, приобретенные покупателем First Corp.
+SELECT DESCRIPTION
+FROM PRODUCTS
+WHERE PRODUCT_ID IN (
+	SELECT PRODUCT FROM ORDERS
+	WHERE CUST = (
+		SELECT CUST_NUM FROM CUSTOMERS WHERE COMPANY = 'First Corp.'));
+
+--1.5.Выбрать всех сотрудников из Восточного региона и отсортировать по параметру Quota.
+SELECT NAME, QUOTA
+FROM SALESREPS
+WHERE REP_OFFICE IN(
+	SELECT OFFICE FROM OFFICES WHERE REGION LIKE 'East%')
+ORDER BY QUOTA ASC;
+
+--1.6.Выбрать заказы, сумма которых больше среднего значения.
+SELECT *
+FROM ORDERS
+WHERE AMOUNT > ( 
+	SELECT AVG(AMOUNT) FROM ORDERS);
+
+--1.7.Выбрать менеджеров, которые обслуживали одних и тех же покупателей.
+SELECT DISTINCT C.COMPANY, 
+				S1.NAME, 
+				S.NAME
+FROM ORDERS O1 JOIN ORDERS O2
+ON O1.CUST = O2.CUST
+JOIN CUSTOMERS C
+ON C.CUST_NUM = O1.CUST
+JOIN SALESREPS S
+ON S.EMPL_NUM = O1.REP
+JOIN SALESREPS S1
+ON S1.EMPL_NUM = O2.REP
+WHERE O1.REP <> O2.REP;
+
+--1.8.Выбрать покупателей с одинаковым кредитным лимитом.
+SELECT DISTINCT C1.COMPANY, 
+				C2.COMPANY,
+				C1.CREDIT_LIMIT,
+				C2.CREDIT_LIMIT
+FROM CUSTOMERS C1 LEFT JOIN CUSTOMERS C2
+ON C1.CREDIT_LIMIT = C2.CREDIT_LIMIT
+WHERE C1.CUST_NUM<>C2.CUST_NUM;
+
+--1.9.Выбрать покупателей, сделавших заказы в один день.
+--!!!!
+SELECT DISTINCT C1.COMPANY, 
+		C2.COMPANY,
+		O1.ORDER_DATE
+FROM ORDERS O1 JOIN ORDERS O2
+ON O1.ORDER_DATE = O2.ORDER_DATE
+JOIN CUSTOMERS C1 ON O1.CUST = C1.CUST_NUM
+JOIN CUSTOMERS C2 ON O2.CUST = C2.CUST_NUM
+WHERE O1.CUST > O2.CUST;
+
+
+--1.10.Подсчитать, на какую сумму каждый офис выполнил заказы, и отсортировать их в порядке убывания.
+--!!!
+SELECT * FROM ORDERS;
+SELECT * FROM SALESREPS;
+
+SELECT REP_OFFICE,
+	   SUM([AMOUNT]) AS TOTAL_AMOUNT
+FROM SALESREPS S JOIN ORDERS O
+ON S.EMPL_NUM = O.REP
+GROUP BY REP_OFFICE
+ORDER BY SUM(AMOUNT) DESC;
+
+
+--1.11.Выбрать сотрудников, которые являются начальниками (у которых есть подчиненные).
+SELECT * FROM SALESREPS;
+
+SELECT S1.NAME 
+FROM SALESREPS S1
+WHERE S1.EMPL_NUM IN (SELECT DISTINCT S2.MANAGER FROM SALESREPS S2
+WHERE S2.MANAGER IS NOT NULL);
+
+SELECT DISTINCT S2.NAME AS MANAGER
+FROM SALESREPS S1 JOIN SALESREPS S2
+ON S1.MANAGER = S2.EMPL_NUM;
+
+--1.12.Выбрать сотрудников, которые не являются начальниками (у которых нет подчиненных).
+SELECT NAME 
+FROM SALESREPS
+
+EXCEPT
+
+SELECT DISTINCT S2.NAME AS MANAGER
+FROM SALESREPS S1 JOIN SALESREPS S2
+ON S1.MANAGER = S2.EMPL_NUM;
+
+--CASE2
+SELECT S1.NAME AS EMPLOYEE,
+	   S2.NAME AS MANAGER
+FROM SALESREPS S1 LEFT JOIN SALESREPS S2
+ON S1.EMPL_NUM = S2.MANAGER
+WHERE S2.NAME IS NULL;
+
+--1.13.Выбрать все продукты, продаваемые менеджерами из восточного региона.
+SELECT DISTINCT P.PRODUCT_ID,
+	   P.[DESCRIPTION],
+       O1.[REGION],
+	   O.ORDER_NUM
+FROM PRODUCTS P
+JOIN [dbo].ORDERS O
+ON P.PRODUCT_ID = O.PRODUCT
+JOIN OFFICES O1
+ON O1.MGR = O.REP
+WHERE O1.REGION = 'Eastern';
+
+--1.14.Выбрать фамилии и даты найма всех сотрудников и отсортировать по сумме заказов, которые они выполнили.
+SELECT S.NAME, 
+       S.HIRE_DATE,
+	   SUM(AMOUNT) AS SUM_ORDERS
+FROM SALESREPS S JOIN ORDERS O 
+ON O.REP = S.EMPL_NUM
+GROUP BY S.HIRE_DATE, S.NAME
+ORDER BY SUM(O.AMOUNT) DESC;
+
+--1.15.Выбрать заказы, выполненные менеджерами из  восточного региона и отсортировать по количеству заказанного по возрастанию.
+SELECT DISTINCT S.NAME,   
+	   S.EMPL_NUM,
+	   O.REP,
+	   O.PRODUCT,
+	   O.ORDER_DATE,
+	   O1.REGION,
+	   O.AMOUNT
+FROM ORDERS O JOIN SALESREPS S
+ON O.REP = S.EMPL_NUM
+JOIN OFFICES O1
+ON O1.MGR = O.REP
+WHERE O1.REGION = 'Eastern'
+ORDER BY O.AMOUNT ASC;
+
+--1.16.Выбрать товары, которые дороже товаров, заказанных компанией First Corp.
+SELECT O.PRODUCT,
+	   O.AMOUNT,
+	   C.COMPANY,
+	   P.DESCRIPTION
+FROM ORDERS O JOIN CUSTOMERS C
+ON O.CUST = C.CUST_NUM
+JOIN PRODUCTS P 
+ON P.PRODUCT_ID = O.PRODUCT
+WHERE O.AMOUNT > (
+	SELECT O.AMOUNT FROM ORDERS O 
+	JOIN CUSTOMERS C
+	ON O.CUST = C.CUST_NUM
+	WHERE C.COMPANY = 'First Corp.')
+ORDER BY O.AMOUNT DESC;
+
+
+--1.17.Выбрать товары, которые не входят в товары, заказанные компанией First Corp.
+SELECT C.COMPANY,
+       O.PRODUCT,
+       SUM(AMOUNT) AS SUM_ORDERS
+FROM ORDERS O JOIN CUSTOMERS C
+ON O.CUST = C.CUST_NUM
+WHERE C.COMPANY NOT LIKE 'First Corp.'
+GROUP BY C.COMPANY, O.PRODUCT
+ORDER BY SUM(AMOUNT) DESC;
+
+--1.18.Выбрать товары, которые по стоимости ниже среднего значения стоимости заказа по покупателю.
+SELECT P.PRODUCT_ID,
+	   C.COMPANY,
+	   SUM(AMOUNT) AS PRICE_PRODUCTS
+FROM ORDERS O JOIN PRODUCTS P
+ON P.PRODUCT_ID = O.PRODUCT
+JOIN CUSTOMERS C 
+ON C.CUST_NUM = O.CUST
+WHERE AMOUNT < ( 
+	SELECT AVG(AMOUNT) FROM ORDERS)
+GROUP BY P.PRODUCT_ID, C.COMPANY
+ORDER BY AVG(AMOUNT) DESC;
+
+
+--1.19.Найти сотрудников, кто выполнял заказы в 2008, но не выполнял в 2007 (как минимум 2-мя разными способами).
+SELECT S.EMPL_NUM,
+		S.NAME,
+		YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) != 2007
+
+	UNION
+
+SELECT S.EMPL_NUM,
+		S.NAME,
+		YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) = 2008;
+
+--CASE2
+SELECT S.EMPL_NUM,
+		S.NAME,
+		YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) != 2007
+
+	INTERSECT
+
+SELECT S.EMPL_NUM,
+		S.NAME,
+		YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) = 2008;
+
+--CASE3
+SELECT S.EMPL_NUM,
+		S.NAME,
+		YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) = 2008
+
+	EXCEPT
+
+SELECT S.EMPL_NUM,
+		S.NAME,
+		YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) = 2007;
+
+
+--1.20.Найти организации, которые не делали заказы в 2008, но делали в 2007 (как минимум 2-мя разными способами).
+--CASE1
+SELECT C.COMPANY,
+	C.CUST_NUM,
+	YEAR(O.ORDER_DATE) AS Year
+FROM CUSTOMERS C LEFT JOIN ORDERS O
+ON O.CUST = C.CUST_NUM
+WHERE YEAR(O.ORDER_DATE) = 2007
+
+	UNION
+
+SELECT C.COMPANY,
+	C.CUST_NUM,
+	YEAR(O.ORDER_DATE) AS Year
+FROM CUSTOMERS C LEFT JOIN ORDERS O
+ON O.CUST = C.CUST_NUM
+WHERE YEAR(O.ORDER_DATE) != 2008;
+
+
+--CASE2
+SELECT DISTINCT C.COMPANY,
+	   C.CUST_NUM,
+	   YEAR(O.ORDER_DATE) AS Year
+FROM CUSTOMERS C LEFT JOIN ORDERS O
+ON O.CUST = C.CUST_NUM
+WHERE YEAR(O.ORDER_DATE) = 2007
+
+	INTERSECT
+
+SELECT C.COMPANY,
+	C.CUST_NUM,
+	YEAR(O.ORDER_DATE) AS Year
+FROM CUSTOMERS C LEFT JOIN ORDERS O
+ON O.CUST = C.CUST_NUM
+WHERE YEAR(O.ORDER_DATE) != 2008;
+
+--CASE3
+SELECT C.COMPANY,
+	 C.CUST_NUM,
+	YEAR(O.ORDER_DATE) AS Year
+FROM CUSTOMERS C LEFT JOIN ORDERS O
+ON O.CUST =  C.CUST_NUM
+WHERE YEAR(O.ORDER_DATE) = 2007
+
+	EXCEPT
+
+SELECT C.COMPANY,
+	    C.CUST_NUM,
+	   YEAR(O.ORDER_DATE) AS Year
+FROM CUSTOMERS C LEFT JOIN ORDERS O
+ON O.CUST =  C.CUST_NUM
+WHERE YEAR(O.ORDER_DATE) = 2008;
+
+--1.21.Найти организации, которые делали заказы в 2008 и в 2007 (как минимум 2-мя разными способами).
+SELECT DISTINCT C.COMPANY,
+	   C.CUST_NUM
+FROM CUSTOMERS C LEFT JOIN ORDERS O
+ON O.CUST = C.CUST_NUM
+WHERE YEAR(O.ORDER_DATE) = 2007
+
+INTERSECT
+
+SELECT C.COMPANY,
+	   C.CUST_NUM
+FROM CUSTOMERS C LEFT JOIN ORDERS O
+ON O.CUST = C.CUST_NUM
+WHERE YEAR(O.ORDER_DATE) = 2008;
+
+
+--1.21 CASE2
+
+--2.Выполните DML операции:
+--2.1.Создайте таблицу Аудит (дата, операция, производитель, код) – она будет использоваться для контроля записи в таблицу PRODUCTS.
+CREATE TABLE AUDIT
+	(DATA_AUDIT DATE,
+	OPERATION_AUDIT VARCHAR(20),
+	MFR_AUDIT CHAR(3),
+	ID_AUDIT CHAR(5));
+
+--2.2.Добавьте во временную таблицу все товары.
+CREATE TABLE #TmpTable
+	(MFR_TMP CHAR(3) NOT NULL,
+	TMP_ID CHAR(5) NOT NULL,
+	DESCRIPTION_TMP VARCHAR(20) NOT NULL,
+    PRICE_TMP MONEY NOT NULL,
+	QTY_ON_HAND_TMP INTEGER NOT NULL);
+
+INSERT INTO #TmpTable (MFR_TMP, TMP_ID, DESCRIPTION_TMP, PRICE_TMP, QTY_ON_HAND_TMP)
+
+SELECT [MFR_ID], [PRODUCT_ID], [DESCRIPTION], [PRICE], [QTY_ON_HAND] 
+FROM [dbo].[PRODUCTS];
+
+SELECT * FROM #TmpTable;
+
+--2.3.Добавьте в эту же временную таблицу запись о товаре, используя ограничения NULL и DEFAULT.
+ALTER TABLE #TmpTable
+ALTER COLUMN DESCRIPTION_TMP VARCHAR(20) NULL;
+
+ALTER TABLE #TmpTable ADD CONSTRAINT DEF_QTY_ON_HAND
+	DEFAULT '10' FOR QTY_ON_HAND_TMP;
+
+INSERT INTO #TmpTable (MFR_TMP, TMP_ID, DESCRIPTION_TMP, PRICE_TMP, QTY_ON_HAND_TMP) 
+VALUES ('IBA', '12345', NULL, 200.00, DEFAULT);
+
+SELECT * FROM #TmpTable;
+
+--2.4.Добавьте в эту же временную таблицу запись о товаре, и одновременно добавьте эти же данные в таблицу аудита (в столбце операция укажите INSERT, в столбце даты – текущую дату).
+INSERT INTO #TmpTable(MFR_TMP, TMP_ID, DESCRIPTION_TMP, PRICE_TMP, QTY_ON_HAND_TMP)
+	OUTPUT GETDATE() AS AUDIT_DATE,
+	'INSERT' AS OPERATION,
+	inserted.MFR_TMP AS MFR_ID, --inserted - временная таблица, находящаяся в оперативной памяти, используется для проверки результатов изменений данных и для установки условий срабатывания триггеров DML
+	inserted.TMP_ID AS TMP_ID INTO AUDIT
+	VALUES('IBA', '1234A', 'Product_1', 250.00, 10);
+
+SELECT * FROM AUDIT;
+
+--2.5.Обновите данные о товарах во временной таблице – добавьте 20% к цене.
+UPDATE #TmpTable SET PRICE_TMP = PRICE_TMP * 1.2;
+SELECT * FROM #TmpTable;
+
+--2.6.Обновите данные о товарах, которые заказывала First Corp. во временной таблице – добавьте 10% к цене.
+UPDATE #TmpTable 
+SET PRICE_TMP = PRICE_TMP * 1.1
+WHERE TMP_ID = 
+	(SELECT TMP_ID FROM ORDERS O
+	LEFT JOIN #TmpTable ON TMP_ID = PRODUCT
+	JOIN CUSTOMERS C ON CUST_NUM = CUST
+	WHERE COMPANY = 'First Corp.');
+
+--2.7.Обновите данные о товаре во временной таблице, и одновременно добавьте эти же данные в таблицу аудита (в столбце операция укажите UPDATE, в столбце даты – текущую дату).
+UPDATE #TmpTable
+SET QTY_ON_HAND_TMP = 20
+OUTPUT GETDATE() AS AUDIT_DATE,
+'UPDATE' AS OPERATION,
+inserted.MFR_TMP AS MFR_TMP,
+'1111' AS TMP_ID INTO AUDIT
+WHERE DESCRIPTION_TMP = 'Plate';
+
+SELECT * FROM #TmpTable;
+
+ --2.8.Удалите товары, которые заказывала First Corp. во временной таблице.
+ DELETE FROM #TmpTable
+ WHERE TMP_ID = 
+	(SELECT TMP_ID FROM ORDERS O
+	LEFT JOIN #TmpTable ON TMP_ID = PRODUCT
+	JOIN CUSTOMERS C ON CUST_NUM = CUST
+	WHERE COMPANY = 'First Corp.');
+ 
+--2.9.Удалите данные о каком-либо товаре во временной таблице, и одновременно добавьте эти данные в таблицу аудита (в столбце операция укажите DELETE, в столбце даты – текущую дату).
+DELETE #TmpTable
+	OUTPUT GETDATE() AS AUDIT_DATE,
+	'DELETE' AS OPERATION,
+	deleted.MFR_TMP AS MFR_ID,  --deleted - --inserted - временная таблица, находящаяся в оперативной памяти, используется для проверки результатов изменений данных и для установки условий срабатывания триггеров DML
+	deleted.TMP_ID AS TMP_ID INTO AUDIT
+	WHERE DESCRIPTION_TMP = 'Plate';
+
+SELECT * FROM #TmpTable;
+
+--3.Создайте представления:
+--3.1.Покупателей, у которых есть заказы выше определенной суммы.
+ --Инструкция CREATE VIEW должна быть единственной инструкцией пакета
+ --т.у. эту инструкцию следует отделять от других инструкций группы посредством инструкции GO
+CREATE VIEW CustomersOrders
+AS SELECT * 
+FROM CUSTOMERS c JOIN ORDERS o
+ON c.CUST_NUM = o.CUST
+ WHERE AMOUNT > 30000;
+ GO
+
+SELECT* FROM CustomersOrders
+ORDER BY AMOUNT;
+
+DROP VIEW CustomersOrders; -- удаление представления
+
+--3.2.Сотрудников, у которых офисы находятся в восточном регионе.
+CREATE VIEW Employees 
+AS SELECT S.EMPL_NUM, S.NAME
+FROM SALESREPS S
+JOIN OFFICES O ON S.REP_OFFICE = O.OFFICE
+WHERE REGION = 'Eastern';
+GO
+
+SELECT * FROM Employees;
+DROP VIEW Employees; -- удаление представления
+
+--3.3.Заказы, оформленные в 2008 году.
+CREATE VIEW OrdersIn2008 
+AS SELECT * FROM ORDERS
+WHERE ORDER_DATE LIKE '2008%';
+GO
+
+SELECT * FROM OrdersIn2008
+ORDER BY ORDER_DATE;
+
+DROP VIEW OrdersIn2008; -- удаление представления
+
+--3.4.Сотрудники, которые не оформили ни одного заказа.
+CREATE VIEW EmployeesWithoutOrders AS 
+SELECT S.NAME, S.EMPL_NUM 
+FROM SALESREPS S LEFT JOIN ORDERS O
+ON S.EMPL_NUM = O.REP
+WHERE ORDER_NUM IS NULL;
+GO
+
+SELECT * FROM EmployeesWithoutOrders;
+DROP VIEW EmployeesWithoutOrders; -- удаление представления
+
+--3.5.Самый популярный товар.
+--order by работает, т.к.используется top
+CREATE VIEW PopularProduct AS 
+SELECT TOP 1 PRODUCT, COUNT(*) AS TOTAL
+FROM ORDERS
+GROUP BY PRODUCT
+ORDER BY TOTAL DESC;
+GO
+
+SELECT * FROM PopularProduct;
+DROP VIEW PopularProduct;
+
+--4.Продемонстрируйте применение DML операций над представлениями.
+--см.выше
+--5.Продемонстрируйте и объясните применение опций CHECK OPTION и SCHEMABINDING. 
+--Ключевое слово WITH CHECK OPTION запрещает изменение строк, которых нет в подзапросе (способ защиты от изменений в таблице)
+--данная таблица находится в папке views
+CREATE VIEW TABLE1 AS
+SELECT * FROM CUSTOMERS
+WHERE CREDIT_LIMIT >60000
+WITH CHECK OPTION; -- нельзя создать строки с credit_limit меньше 60000
+GO
+
+SELECT * FROM TABLE1;
+--DROP VIEW TABLE1;
+GO
+
+INSERT INTO TABLE1 VALUES(2125,'IBA Group',103,50000.00);--неверно, т.к. у нас есть ограничение, в котором credit_limit должен быть >60000
+INSERT INTO TABLE1 VALUES(2126,'AAA Group',101,65000.00); --верно, т.к. redit_limit > 60000
+INSERT INTO TABLE1 VALUES(2127,'BBB Group',103,70000.00); --верно, т.к. redit_limit > 60000
+
+SELECT * FROM TABLE1;
+
+DELETE FROM TABLE1 WHERE CUST_NUM = 2127;
+
+--SCHEMABINDING привязывает представление к схеме таблицы, по которой оно создается, 
+--и блокирует таблицы на которые ссылается представление, запрещая любые изменения схемы этих таблиц
+CREATE VIEW TABLE2 WITH SCHEMABINDING AS
+SELECT * FROM CUSTOMERS  --при использовании SCHEMABINDING нельзя делать SELECT *, будет ошибка
+WHERE CREDIT_LIMIT > 50000 AND CREDIT_LIMIT < 65000;
+
+
+CREATE VIEW dbo.TABLE2 WITH SCHEMABINDING AS
+SELECT COMPANY, CREDIT_LIMIT
+FROM dbo.CUSTOMERS  --при использовании SCHEMABINDING нельзя делать SELECT *, будет ошибка
+WHERE CREDIT_LIMIT > 50000 AND CREDIT_LIMIT < 65000;
+
+SELECT * FROM TABLE2;
+DROP VIEW TABLE2;--удаление таблицы
+GO
+
+--6.Продемонстрируйте пример применения операций над множествами.
+--Найти сотрудников, кто выполнял заказы в 2008, но не выполнял в 2007 (как минимум 2-мя разными способами).
+
+--оператор UNION объединяет данные из нескольких таблиц в одну при выборке
+--если не используется ключевое слово ALL для UNION, все возвращенные строки будут уникальными, 
+--так как по умолчанию подразумевается distinct, который удаляет неуникальные значения
+SELECT S.EMPL_NUM,
+	   S.NAME,
+	   YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) != 2007
+
+	UNION
+
+SELECT S.EMPL_NUM,
+	   S.NAME,
+	   YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) = 2008;
+
+--оператор intersect задает пересечение
+--Пересечением двух таблиц является множество строк, которые одновременно принадлежат обеим таблицам
+SELECT S.EMPL_NUM,
+	   S.NAME,
+	   YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) != 2007
+
+	INTERSECT
+
+SELECT S.EMPL_NUM,
+	   S.NAME,
+	   YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) = 2008;
+
+--except, который определяет операцию разности множеств.
+--Разность двух таблиц - множество строк, которые принадлежат первой таблице и не присутствуют во второй таблице
+SELECT S.EMPL_NUM,
+	   S.NAME,
+	   YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) = 2008
+
+	EXCEPT
+
+SELECT S.EMPL_NUM,
+	   S.NAME,
+	   YEAR(O.ORDER_DATE) AS Year
+FROM SALESREPS S Left join ORDERS O
+ON O.REP = S.EMPL_NUM
+WHERE YEAR(O.ORDER_DATE) = 2007;
+
+
+--7.Продемонстрируйте применение команды TRUNCATE.
+--SELECT INTO создает новую таблицу и вставляет в нее результирующие строки из SQL запроса
+--сразу создадим таблицу CUSTOMERS_COPY и вставим в нее все строки из таблицы CUSTOMERS
+SELECT [CUST_NUM], [COMPANY], [CUST_REP], [CREDIT_LIMIT]
+INTO CUSTOMERS_COPY FROM CUSTOMERS;
+
+SELECT * FROM CUSTOMERS_COPY
+WHERE CUST_REP = '101';
+
+--TRUNCATE быстрее и использует меньше системных ресурсов, чем delete
+--удаляет все строки таблицы, но структура таблицы (столбцы, ограничения, индексы и т.д.) остается
+--Нельзя использовать TRUNCATE TABLE для таблиц, связанных ограничением FOREIGN KEY.
+--Откат (rollback) после TRUNCATE невозможен
+TRUNCATE TABLE CUSTOMERS_COPY;
+SELECT * FROM CUSTOMERS_COPY;
+
+--8.Напишите скрипт из аналогичных запросов к базе данных по варианту. В качестве комментария укажите условие запроса.
+SELECT * FROM [Matsuk_1].[dbo].[CUSTOMERS];
+SELECT * FROM [Matsuk_1].[dbo].[OFFICES];
+SELECT * FROM [Matsuk_1].[dbo].[ORDERS];
+SELECT * FROM [Matsuk_1].[dbo].[PRODUCTS];
+
+--Выбрать заказы, сделанные в период с 01.06.2007 по 31.12.2007
+SELECT *
+FROM ORDERS
+WHERE ORDER_DATE BETWEEN '2007-06-01' AND '2007-12-31'
+ORDER BY ORDER_DATE;
+
+--Указать среднюю стоимость всех заказов, сделанных компанией Orion Corp.
+SELECT COMPANY C,
+       AVG(AMOUNT) AS TOTAL_SUM
+FROM ORDERS O JOIN CUSTOMERS C 
+ON O.CUST = C.CUST_NUM 
+WHERE COMPANY = 'Orion Corp.'
+GROUP BY COMPANY;
+
+
+
+--9.Продемонстрируйте оба скрипта преподавателю.
+
