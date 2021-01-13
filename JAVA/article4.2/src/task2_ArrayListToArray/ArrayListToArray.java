@@ -1,4 +1,4 @@
-package task2;
+package task2_ArrayListToArray;
 //Пример №2. Преобразовать списочный массив ArrayList в обычный массив
 import java.math.BigDecimal;
 import java.math.RoundingMode;

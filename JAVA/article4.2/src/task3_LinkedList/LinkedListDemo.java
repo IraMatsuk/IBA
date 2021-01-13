@@ -1,4 +1,4 @@
-package task3;
+package task3_LinkedList;
 //Пример №3. Демонстрация применения класса LinkedList
 import java.util.LinkedList;
 

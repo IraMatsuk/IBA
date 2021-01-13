@@ -1,4 +1,4 @@
-package task1;
+package task1_ArrayList;
 //Пример №1. Демонстрация применения класса ArrayList
 import java.util.ArrayList;
 
