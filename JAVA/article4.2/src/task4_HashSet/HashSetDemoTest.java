@@ -30,7 +30,7 @@ public class HashSetDemoTest {
             System.out.println(s);
         }
         clonedHashSet = (HashSet<String>) hashSet.clone();
-        clonedHashSet = (HashSet<String>) hashSet.clone();
+        clonedHashSet = (HashSet<String>) hashSet.clone(); //создат копию, при этом выделяет новый участок памяти
         System.out.println("--------------------------------------");
         System.out.println("Дубликат хеш-множества:");
         for(String s : clonedHashSet) {
