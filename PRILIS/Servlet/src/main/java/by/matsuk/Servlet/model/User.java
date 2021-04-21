@@ -15,6 +15,12 @@ public class User {
     }
     public User() {
     }
+
+    public User(String name, String password) {
+        this.login = name;
+        this.passw = password;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
