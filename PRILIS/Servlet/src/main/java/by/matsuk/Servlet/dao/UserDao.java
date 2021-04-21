@@ -29,12 +29,12 @@ public class UserDao {
             e.printStackTrace();
         }
     }
-    public boolean isValidUser(final String login, final String password) {
+    public boolean isValidUser(final String login, final byte[] password) {
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement("select login,passw from users where login=? and passw=?");
             ps.setString(1, login);
-            ps.setString(2, password);
+            ps.setBytes(2, password);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 return true;
@@ -66,7 +66,7 @@ public class UserDao {
             else {
                 preparedStatement = connection.prepareStatement(SQL_INSERT_USER);
                 preparedStatement.setString(1, user.getLogin());
-                preparedStatement.setString(2, user.getPassw());
+                preparedStatement.setBytes(2, user.getPassw());
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
             }

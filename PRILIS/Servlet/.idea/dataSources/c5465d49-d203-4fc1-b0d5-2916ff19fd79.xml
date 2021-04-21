@@ -979,22 +979,51 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="286" parent="2" name="users"/>
-    <column id="287" parent="286" name="id">
+    <table id="286" parent="2" name="persons"/>
+    <table id="287" parent="2" name="users"/>
+    <column id="288" parent="286" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="288" parent="286" name="login">
+    <column id="289" parent="286" name="pname">
+      <Position>2</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="290" parent="286" name="phone">
+      <Position>3</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="291" parent="286" name="email">
+      <Position>4</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="292" parent="286" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="293" parent="287" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="294" parent="287" name="login">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="289" parent="286" name="passw">
+    <column id="295" parent="287" name="passw">
       <Position>3</Position>
-      <DataType>varchar(12)|0s</DataType>
+      <DataType>blob|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="290" parent="286" name="PRIMARY">
+    <key id="296" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

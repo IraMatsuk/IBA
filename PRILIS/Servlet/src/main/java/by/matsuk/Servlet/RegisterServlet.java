@@ -2,6 +2,7 @@ package by.matsuk.Servlet;
 
 import by.matsuk.Servlet.dao.UserDao;
 import by.matsuk.Servlet.model.User;
+import by.matsuk.Servlet.util.HashPassword;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -15,7 +16,8 @@ public class RegisterServlet extends HttpServlet {
         String name = request.getParameter("newLoginName");
         String password = request.getParameter("newPassword");
         UserDao daoUser = new UserDao();
-        User user = new User(name,password);
+        User user = new User(name, HashPassword.getHash(password));
+
         if (daoUser.insertUser(user)) {
             request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
                     request, response);

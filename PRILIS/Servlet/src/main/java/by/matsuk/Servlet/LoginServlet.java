@@ -1,6 +1,7 @@
 package by.matsuk.Servlet;
 
 import by.matsuk.Servlet.dao.UserDao;
+import by.matsuk.Servlet.util.HashPassword;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -19,7 +20,7 @@ public class LoginServlet extends jakarta.servlet.http.HttpServlet {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         UserDao daoUser = new UserDao();
-        if (daoUser.isValidUser(name, password)) {
+        if (daoUser.isValidUser(name, HashPassword.getHash(password))) {
             request.getSession().setAttribute("name", name);
             response.sendRedirect(request.getContextPath()+"/GroupListServlet");
             // НЕТ ПАРАМЕТРОВ - всегда использует метод get
