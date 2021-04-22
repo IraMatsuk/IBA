@@ -2,19 +2,25 @@ package by.matsuk.Servlet.dao;
 
 import by.matsuk.Servlet.model.Person;
 import by.matsuk.Servlet.util.ConnectorDB;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
 public class PersonDao {
+    private static final Logger logger = LogManager.getLogger(PersonDao.class);
     private final static String SQL_GET_PERSONS = "SELECT * FROM persons";
     private final static String SQL_INSERT_PERSONS = "INSERT INTO persons(pname,phone,email) VALUES (? ,?, ?)";
+    private final static String SQL_DELETE_PERSONS = "DELETE FROM persons WHERE id = ?";
     private static Connection connection;
     public PersonDao() {
         try {
             if (connection == null){
-                connection = ConnectorDB.getConnection(); }
+                connection = ConnectorDB.getConnection();
+                logger.info("get connection");
+            }
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -24,6 +30,7 @@ public class PersonDao {
         try {
             if (connection != null) {
                 connection.close();
+                logger.info("close connection");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,10 +45,12 @@ public class PersonDao {
             preparedStatement.setString(3, person.getEmail());
             preparedStatement.executeUpdate();
             preparedStatement.close();
+            logger.info("New Person " + person.getName() +" inserted");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     public List<Person> getPersons() {
         List<Person> persons = new LinkedList<Person>();
         try {

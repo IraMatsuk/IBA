@@ -1,0 +1,12 @@
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\filter\LoginRequiredFilter.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\util\ConnectorDB.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\dao\UserDao.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\GroupListServlet.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\RegisterServlet.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\util\HashPassword.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\model\ListService.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\LogoutServlet.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\model\User.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\LoginServlet.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\model\Person.java
+D:\Repositories\IBA\PRILIS\Servlet\src\main\java\by\matsuk\Servlet\dao\PersonDao.java

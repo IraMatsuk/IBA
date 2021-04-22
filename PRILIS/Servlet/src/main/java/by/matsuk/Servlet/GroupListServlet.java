@@ -18,7 +18,7 @@ public class GroupListServlet extends HttpServlet {
         String nphone = request.getParameter("nphone");
         String nemail= request.getParameter("nemail");
         if (nname.isBlank() || nphone.isBlank() || nemail.isBlank()) {
-            request.setAttribute("errorMessage", "Заполните все поля");
+            request.setAttribute("errorMessage", "Fill in all the fields");
         } else {
             daoPerson.insertPerson(new Person(nname, nphone,nemail));
         }
