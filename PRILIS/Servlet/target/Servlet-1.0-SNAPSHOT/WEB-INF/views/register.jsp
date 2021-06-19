@@ -8,18 +8,19 @@
     <div class ="container">
         <section id="content">
             <p><font color="red">${errorRegister}</font></p>
-            <form action="RegisterServlet" method="POST">
-                <h1> Регистрация нового пользователя </h1>
+            <form
+                    action="${pageContext.servletContext.contextPath}/controller?command=register_new_user" method="POST">
+                <h1>New User Registration</h1>
                 <div>
-                    <input placeholder="Введите имя"
-                           required=""name="newLoginName" type="text" />
+                    <input placeholder="Enter your name"
+                           required="" name="newLoginName" type="text" />
                 </div>
                 <div>
-                    <input placeholder="Введите пароль" id ="password" required=""
+                    <input placeholder="Enter password" id ="password" required=""
                            name="newPassword" type="password" />
                 </div>
                 <div>
-                    <input type="submit" value="Зарегистрировать"/>
+                    <input type="submit" value="Register"/>
                 </div>
             </form>
         </section>

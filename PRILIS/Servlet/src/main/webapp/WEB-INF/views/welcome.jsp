@@ -2,112 +2,120 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title> Title</title>
-    <!-- Bootstrap core CSS -->
-    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css"
-          rel="stylesheet">
+    <title> Welcome</title>
+    <link rel="stylesheet" href="css/style_w.css">
+    <!--[if !IE]><!-->
     <style>
-
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 60px;
-            background-color: #f5f5f5;
+        @media
+        only screen and (max-width: 760px),
+        (min-device-width: 768px) and (max-device-width: 1024px) {
+            /* Force table to not be like tables anymore */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            /* Hide table headers (but not display: none;, for accessibility) */
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr { border: 1px solid #ccc; }
+            td {
+                /* Behave like a "row" */
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+            }
+            td:before {
+                /* Now like a table header */
+                position: absolute;
+                /* Top/left values mimic padding */
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+            }
+            /*
+            Label the data
+            */
+            td:nth-of-type(1):before { content: "Имя"; }
+            td:nth-of-type(2):before { content: "Телефон"; }
+            td:nth-of-type(3):before { content: "Email"; }
         }
-        .footer .container {
-            width: auto;
-            max-width: 680px;
-            padding: 0 15px;
+        /* Smartphones (portrait and landscape) ----------- */
+        @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 480px) {
+            body {
+                padding: 0;
+                margin: 0;
+                width: 320px; }
         }
-
-        h2{
-            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-            font-size: 14px;
+        /* iPads (portrait and landscape) ----------- */
+        @media only screen and (min-device-width: 768px) and (max-device-width:
+                1024px) {
+            body {
+                width: 495px;
+            }
         }
-        caption {
-            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-            font-size: 16px;
-            font-weight: bold;
-            caption-side: top;
-            text-align: left;
-            margin-bottom: 15px;
-        }
-
-        table {
-            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-            font-size: 14px;
-            background: white;
-            max-width: 70%;
-            width: 70%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-
-        th {
-            font-weight: normal;
-            color: #ffffff;
-            background: #404040;
-            padding: 10px 15px;
-        }
-        td {
-            color: #000000;
-            border-top: 1px solid #404040;
-            padding: 10px 15px;
-        }
-
-        tr:nth-child(2n) {
-            background: #f2f2f2;
-        }
-
     </style>
-
+    <!--<![endif]-->
 </head>
 <body>
     <nav role="navigation" class="navbar navbar-default">
-        <div class="">
-            <img src = "https://www.kv.by/sites/default/files/user7743/logo_iba_group.jpg" width="50" height="50">
-        </div>
-        <div class="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="LoginServlet">Login</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="LogoutServlet">Logout</a></li>
-            </ul>
+        <div >
+            <nav class="menu" >
+                <ul >
+                    <li><a href="${pageContext.request.contextPath}/controller?command=login_page">Login</a></li>
+                    <li><a href="${pageContext.servletContext.contextPath}/controller?command=sign_out">Logout</a></li>
+                   <!-- <li style="float:right;"> -->
+                </ul>
+            </nav>
         </div>
     </nav>
     <div class="container">
-        <H2>Добро пожаловать, ${name}</H2>
-        <table border="1">
-            <caption>Список вашей группы</caption>
-            <tr>
-                <th>Имя</th>
-                <th>Телефон</th>
-                <th>Email</th>
-            </tr>
-            <c:forEach items="${group}" var="person">
-                <tr><td>${person.name}</td>
-                    <td>${person.phone}</td>
-                    <td>${person.email}</td>
+        <h4>Welcome, ${username} </h4>
+        <div class = "layer1">
+            <H2> <caption>List of your group</caption> </H2>
+            <p/>
+            <table class ="container" border="2">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
                 </tr>
-            </c:forEach>
-        </table>
-        <p><font color="red">${errorMessage}</font></p>
-        <form method="POST" action="GroupListServlet">
-            Добавить новый контакт
-            <p> Введите имя <input name="nname" type="text" /> </p>
-            <p> Введите телефон <input name="nphone" type="text" /> </p>
-            <p> Введите email <input name="nemail" type="text" /> </p>
-            <input name="add" value="Добавить" type="submit" />
-        </form>
-    </div>
-    <footer class="footer">
-        <div class="container">
-            <p>2021 Все права защищены</p>
+                <c:forEach items="${group}" var="person">
+                    <tr><td>${person.name}</td>
+                        <td>${person.phone}</td>
+                        <td>${person.email}</td>
+                    </tr>
+                </c:forEach>
+            </table>
         </div>
-    </footer>
-<script src="webjars/jquery/3.3.1/jquery.min.js"></script>
-<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <div class = "layer2">
+            <div class ="container">
+                <section id="content">
+                    <p><font color="red">${errorMessage}</font></p>
+                    <form class="login-form" method="POST" action="${pageContext.servletContext.contextPath}/controller?command=add_new_person">
+                        Add new contact
+                        <div>
+                            <input name="nname" type="text" placeholder="Enter your name" required=""/>
+                        </div>
+                        <div>
+                            <input name="nphone" type="text" placeholder="Enter your phone" required="" />
+                        </div>
+                        <div>
+                            <input name="nemail" type="text" placeholder="Enter your email" required="" />
+                        </div>
+                        <div>
+                            <input class ="button-main-page" value="Add" type="submit" />
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
