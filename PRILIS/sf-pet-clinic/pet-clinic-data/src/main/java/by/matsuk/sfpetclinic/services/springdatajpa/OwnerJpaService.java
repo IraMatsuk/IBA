@@ -17,6 +17,7 @@ public class OwnerJpaService implements OwnerService {
     private final OwnerRepository ownerRepository;
     private final PetRepository petRepository;
     private final PetTypeRepository petTypeRepository;
+
     public OwnerJpaService(OwnerRepository ownerRepository, PetRepository
             petRepository, PetTypeRepository petTypeRepository) {
         this.ownerRepository = ownerRepository;
