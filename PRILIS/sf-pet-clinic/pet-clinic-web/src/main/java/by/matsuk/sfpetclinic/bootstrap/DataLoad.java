@@ -72,8 +72,8 @@ public class DataLoad implements CommandLineRunner {
         Vet vetB= new Vet();
         vetB.setFirstName("Paul");
         vetB.setLastName("Small");
-        vetA.getSpecialities().add(savedRadiology);
-        vetA.getSpecialities().add(savedDentisty);
+        vetB.getSpecialities().add(savedRadiology);
+        vetB.getSpecialities().add(savedDentisty);
         vetService.save(vetB);
         System.out.println(vetService.findAll().size());
     }
