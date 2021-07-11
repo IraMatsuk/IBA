@@ -52,15 +52,23 @@ public class DataLoad implements CommandLineRunner {
 
         Pet newPet = new Pet();
         newPet.setPetType(savedDogType);
+        newPet.setOwner(ownerA);
         newPet.setBirthDate(LocalDate.now());
         newPet.setName("Roki");
         ownerA.getPets().add(newPet);
+
+        //2
+       // Pet anotherPet = Pet.builder().birthDate(LocalDate.now()).name("Holly").build();
+       // ownerA.getPets().add(anotherPet);
+       // anotherPet.setOwner(ownerA);
+
         ownerService.save(ownerA);
 
         Visit dogVisit = new Visit();
         dogVisit.setPet(newPet);
         dogVisit.setDate(LocalDate.now());
         dogVisit.setDescription("bad mind");
+
         System.out.println(ownerService.findAll().size());
 
         Vet vetA = new Vet();
