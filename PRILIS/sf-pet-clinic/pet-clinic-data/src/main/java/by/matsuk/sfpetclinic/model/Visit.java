@@ -1,8 +1,10 @@
 package by.matsuk.sfpetclinic.model;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @Data
@@ -10,8 +12,10 @@ import java.time.LocalDate;
 @Table(name = "visits")
 public class Visit extends BaseEntity{
     @Column(name = "date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
+    @NotEmpty
     @Column(name = "description")
     private String description;
 

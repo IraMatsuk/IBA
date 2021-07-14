@@ -3,6 +3,7 @@ package by.matsuk.sfpetclinic.bootstrap;
 import by.matsuk.sfpetclinic.model.*;
 import by.matsuk.sfpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -30,10 +31,15 @@ public class DataLoad implements CommandLineRunner {
             loadData();
         }
     }
+
     private void loadData() {
         PetType dog = new PetType();
         dog.setName("dog");
         PetType savedDogType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("cat");
+        PetType savedCatType = petTypeService.save(cat);
 
         Speciality radiology = new Speciality();
         radiology.setDescription("radiololgy");
@@ -57,17 +63,34 @@ public class DataLoad implements CommandLineRunner {
         newPet.setName("Roki");
         ownerA.getPets().add(newPet);
 
-        //2
-       // Pet anotherPet = Pet.builder().birthDate(LocalDate.now()).name("Holly").build();
-       // ownerA.getPets().add(anotherPet);
-       // anotherPet.setOwner(ownerA);
-
+        Pet anotherPet = Pet.builder().birthDate(LocalDate.now()).name("Holly").build();
+        ownerA.getPets().add(anotherPet);
+        anotherPet.setOwner(ownerA);
         ownerService.save(ownerA);
 
         Visit dogVisit = new Visit();
         dogVisit.setPet(newPet);
         dogVisit.setDate(LocalDate.now());
         dogVisit.setDescription("bad mind");
+
+
+        //2
+        Owner ownerB = new Owner();
+        ownerB.setId(2L);
+        ownerB.setFirstName("Sergei");
+        ownerB.setLastName("Kolosov");
+        ownerB.setAddress("Amuratorskaia, 55");
+        ownerB.setCity("Minsk");
+        ownerB.setTelephone("+375291520945");
+
+        Pet newPet2 = new Pet();
+        newPet2.setPetType(savedDogType);
+        newPet2.setOwner(ownerB);
+        newPet2.setBirthDate(LocalDate.now());
+        newPet2.setName("Holly");
+        ownerB.getPets().add(newPet2);
+        ownerB.getPets().add(newPet);
+        ownerService.save(ownerB);
 
         System.out.println(ownerService.findAll().size());
 
@@ -77,6 +100,7 @@ public class DataLoad implements CommandLineRunner {
         vetA.getSpecialities().add(savedRadiology);
         vetA.getSpecialities().add(savedDentisty);
         vetService.save(vetA);
+
         Vet vetB= new Vet();
         vetB.setFirstName("Paul");
         vetB.setLastName("Small");

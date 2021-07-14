@@ -102,15 +102,4 @@ public class OwnerController {
             return "redirect:/owners/" + savedOwner.getId();
         }
     }
-
-    /*@GetMapping("/owners/{ownerId}")
-    public ModelAndView showOwner(@PathVariable("ownerId") long ownerId) {
-        ModelAndView mav = new ModelAndView("owners/ownerDetails");
-        Owner owner = this.ownerService.findById(ownerId);
-        for (Pet pet : owner.getPets()) {
-            pet.setVisitsInternal(visits.findByPetId(pet.getId()));
-        }
-        mav.addObject(owner);
-        return mav;
-    }*/
 }
