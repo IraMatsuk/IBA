@@ -1,0 +1,26 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<fmt:setLocale value="${locale}" scope="session"/>
+<fmt:setBundle basename="localized_text"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="https://matsuk.com/jsp/tlds/myTags" prefix="myTags" %>
+<html>
+<head>
+    <title>Change Locale</title>
+</head>
+<body onkeydown="return (event.keyCode != 116)">
+<div class="row">
+    <div class="col-4">
+        <myTags:formatLocaleName initialLocaleName="${locale}"/>
+    </div>
+    <div class="col-4">
+        <form method="post" action="${pageContext.request.contextPath}/controller">
+            <input type="hidden" name="command" value="change_locale"/>
+            <input type="hidden" name="path" value="${pageContext.request.requestURL}"/>
+            <button type="submit" class="btn btn-primary btn-sm">
+                <fmt:message key="main_client.change_locale"/>
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
